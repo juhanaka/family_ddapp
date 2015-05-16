@@ -2,19 +2,15 @@
 
 # Check the data files
 if ! [ -d data ] \
-  || ! [ -f data/spouses.tsv ] \
-  || ! [ -f data/non-spouses.tsv ] \
-  || ! [ -f data/sentences_dump.csv ] \
-  || ! [ -f data/sentences_dump_large.csv ]; then
-  echo "ERROR: Data files do not exist. You should download the data from http://i.stanford.edu/hazy/deepdive-tutorial-data.zip, and extract files to data/ directory."
+  || ! [ -f data/training-data.tsv ]; then
+  echo "ERROR: Data files do not exist. Get the founder training dataset !"
   exit 1;
 fi
 
 export APP_HOME=`cd $(dirname $0)/; pwd`
-export DEEPDIVE_HOME=`cd $(dirname $0)/../../../; pwd`
 
 # Database Configuration
-export DBNAME=deepdive_spouse
+export DBNAME=deepdive_family
 
 export PGUSER=${PGUSER:-`whoami`}
 export PGPASSWORD=${PGPASSWORD:-}
@@ -35,5 +31,5 @@ set -e
 deepdive -c $APP_HOME/application.conf
 
 # Generate automatic reports
-#cd $APP_HOME
-#braindump
+cd $APP_HOME
+braindump
