@@ -1,3 +1,7 @@
+experiment-reports/
+labeling/founder-precision_with_features/input.csv
+setup_env.sh
+*.DS_Store
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -55,3 +59,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+#vim
+*.swp
