@@ -45,7 +45,7 @@ for i in $(seq 0 $n)
 <<<<<<< HEAD
 do
   echo $i
-  ghead -n -1 $DATA_DIR/sentences-$i.tsv | ./filter_warc | psql -d $DBNAME -c "copy sentences_intermediate from STDIN;"
+  ghead -n -1 $DATA_DIR/sentences-$i.tsv | ./filter | psql -d $DBNAME -c "copy sentences_intermediate from STDIN;"
 done
 
 psql -d $DBNAME -c \
