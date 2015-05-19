@@ -5,7 +5,7 @@
 int main () {
     std::unordered_set<std::string> companies;
     std::string line;
-    std::ifstream company_id_file("data/ids.txt");
+    std::ifstream company_id_file("data/filter_ids.txt");
     std::string cur_id;
     int start, end;
     if (company_id_file.is_open()) {

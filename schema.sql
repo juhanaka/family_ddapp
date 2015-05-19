@@ -1,4 +1,4 @@
-#Sentences extractors and processing
+-- Sentences extractors and processing
 DROP TABLE IF EXISTS sentences CASCADE;
 CREATE TABLE sentences(
   document_id text,
@@ -26,7 +26,7 @@ CREATE TABLE sentences_processed(
   sentence_id text UNIQUE -- unique identifier for sentences
   );
 
-#People extractor(s)
+-- People extractor(s)
 DROP TABLE IF EXISTS people_mentions CASCADE;
 CREATE TABLE people_mentions(
   sentence_id text,
@@ -36,7 +36,7 @@ CREATE TABLE people_mentions(
   mention_id text  -- unique identifier for people_mentions
   );
 
-#Relations extractors
+-- Relations extractors
 DROP TABLE IF EXISTS has_spouse CASCADE;
 CREATE TABLE has_spouse(
   person1_id text,
@@ -71,7 +71,7 @@ CREATE TABLE has_parent(
   );
 
 
-#Features selection
+-- Features selection
 DROP TABLE IF EXISTS has_spouse_features CASCADE;
 CREATE TABLE has_spouse_features(
   relation_id text,
