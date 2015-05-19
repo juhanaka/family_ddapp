@@ -5,7 +5,7 @@ DBNAME=deepdive_family
 psql -d $DBNAME -c \
 """
 DROP TABLE IF EXISTS sentences CASCADE;
-CREATE TABLE sentences_sampled(
+CREATE TABLE sentences(
   document_id text,
   sentence text,
   words text[],
