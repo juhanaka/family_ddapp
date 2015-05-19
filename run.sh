@@ -2,7 +2,9 @@
 
 # Check the data files
 if ! [ -d data ] \
-  || ! [ -f data/training-data.tsv ]; then
+  || ! [ -f data/training-data-parent.tsv ] \
+  || ! [ -f data/training-data-sibling.tsv ] \
+  || ! [ -f data/training-data-spouse.tsv ]; then
   echo "ERROR: Data files do not exist. Get the founder training dataset !"
   exit 1;
 fi
