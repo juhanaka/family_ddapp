@@ -5,7 +5,7 @@ if ! [ -d data ] \
   || ! [ -f data/training-data-parent.tsv ] \
   || ! [ -f data/training-data-sibling.tsv ] \
   || ! [ -f data/training-data-spouse.tsv ]; then
-  echo "ERROR: Data files do not exist. Get the founder training dataset !"
+  echo "ERROR: Data files do not exist. Get the family training dataset !"
   exit 1;
 fi
 
