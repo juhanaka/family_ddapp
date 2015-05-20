@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-import csv, os, sys
+import csv, os, sys, re
 
 # The directory of this UDF file
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -12,7 +12,11 @@ married_people = set()
 non_spouses = set()
 lines = open(BASE_DIR + '/../data/training-data-spouse.tsv').readlines()
 for line in lines:
-  name1, name2, relation = line.strip().split('\t')
+  arr = re.split('\s*\t\s*', line.strip())
+  if len(arr) != 3:
+    print >> sys.stderr, line
+    continue
+  name1, name2, relation = arr
   if relation=="1":
     spouses.add((name1, name2))  # Add a spouse relation pair
     married_people.add(name1)    # Record the person as married
@@ -30,12 +34,12 @@ for row in sys.stdin:
   p1_text_lower = p1_text.lower()
   p2_text_lower = p2_text.lower()
 
-  # DS rule 1: true if they appear in spouse KB, 
+  # DS rule 1: true if they appear in spouse KB,
   is_true = '\N'
   if (p1_text_lower, p2_text_lower) in spouses or \
      (p2_text_lower, p1_text_lower) in spouses:
     is_true = '1'
-  # DS rule 2: false if they appear in non-spouse KB    
+  # DS rule 2: false if they appear in non-spouse KB
   elif (p1_text_lower, p2_text_lower) in non_spouses or \
        (p2_text_lower, p1_text_lower) in non_spouses:
     is_true = '0'
@@ -48,7 +52,7 @@ for row in sys.stdin:
 
   # Output relation candidates into output table
   print '\t'.join([
-    p1_id, p2_id, sentence_id, 
+    p1_id, p2_id, sentence_id,
     "%s-%s" %(p1_text, p2_text),
     is_true,
     "%s-%s" %(p1_id, p2_id),
