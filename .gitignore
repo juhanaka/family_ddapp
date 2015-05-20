@@ -1,5 +1,6 @@
 experiment-reports/
 labeling/founder-precision_with_features/input.csv
+data/training-data*
 setup_env.sh
 filter
 *.DS_Store
