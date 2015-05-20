@@ -33,10 +33,10 @@ for row in sys.stdin:
 
   # DS rule 1: true if they appear in spouse KB, 
   is_true = '\N'
-  if (p1_text_lower, p2_text_lower) in kid_parent_relationship
+  if (p1_text_lower, p2_text_lower) in kid_parent_relationship:
     is_true = '1'
   # DS rule 2: false if they appear in non-spouse KB    
-  elif (p1_text_lower, p2_text_lower) in non_kid_parent_relationship
+  elif (p1_text_lower, p2_text_lower) in non_kid_parent_relationship:
     is_true = '0'
   # DS rule 3: false if they appear to be in same person
   elif (p1_text == p2_text) or (p1_text in p2_text) or (p2_text in p1_text):
