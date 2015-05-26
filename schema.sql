@@ -26,6 +26,19 @@ CREATE TABLE sentences_processed(
   sentence_id text UNIQUE -- unique identifier for sentences
   );
 
+DROP TABLE IF EXISTS sentences_filtered CASCADE;
+CREATE TABLE sentences_filtered(
+  document_id text,
+  sentence text,
+  words text[],
+  lemma text[],
+  pos_tags text[],
+  dependencies text[],
+  ner_tags text[],
+  sentence_offset bigint,
+  sentence_id text UNIQUE -- unique identifier for sentences
+  );
+
 -- People extractor(s)
 DROP TABLE IF EXISTS people_mentions CASCADE;
 CREATE TABLE people_mentions(
