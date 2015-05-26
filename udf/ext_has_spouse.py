@@ -45,10 +45,14 @@ for row in sys.stdin:
     p2_text_lower = p2_text.lower()
 
     doc_id = sentence_id.split('@')[0]
-    page_name = ids_names[doc_id].lower()
-    if (not p1_text_lower in page_name) and (not p2_text_lower in page_name):
+    page_name = ids_names[doc_id]
+    if (not p1_text_lower in page_name.lower()):
         continue
 
+    # If the first candidate is our subject, rename them
+    p1_text = page_name
+    p1_text_lower = page_name.lower()
+    
     # DS rule 1: true if they appear in spouse KB,
     is_true = '\N'
     if (p1_text_lower, p2_text_lower) in spouses or \
