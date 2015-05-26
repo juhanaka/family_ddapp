@@ -13,7 +13,7 @@ with open(BASE_DIR + '/../data/bad-sentences.tsv') as fp:
 
 for line in sys.stdin:
     row = json.loads(line)
-    if row['sentence_id'] in bad_sentences:
+    if row['sentence_id'].strip() in bad_sentences:
         continue
     print json.dumps(row)
 
