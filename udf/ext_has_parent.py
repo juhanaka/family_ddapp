@@ -13,9 +13,9 @@ people_already_seen_as_parent = set()
 non_kid_parent_relationship = set()
 lines = open(BASE_DIR + '/../data/training-data-parent.tsv').readlines()
 for line in lines:
-    arr = re.split('\s*\t\s*', line.strip())
+    arr = re.split('\s*\t\s*', line.strip().lower())
     if len(arr) != 3:
-        print >> sys.stderr, line
+        # print >> sys.stderr, line
         continue
     nameKid, nameParent, relation = arr
     if relation=="1":
