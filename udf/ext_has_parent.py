@@ -51,7 +51,6 @@ for row in sys.stdin:
 
     p1_text = page_name
     p1_text_lower = page_name.lower()
-    print >> sys.stderr, p1_text
 
     # DS rule 1: true if they appear in spouse KB,
     is_true = '\N'
