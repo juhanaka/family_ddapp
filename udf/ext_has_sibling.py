@@ -12,7 +12,7 @@ with open(BASE_DIR + '/../data/ids_names.tsv') as f:
     for i,line in enumerate(f):
         line = line.split('\t')
         doc_id = line[0]
-        name = line[1]
+        name = line[1].rstrip()
         ids_names[doc_id] = name
 
 # Load the spouse dictionary for distant supervision.
@@ -49,9 +49,9 @@ for row in sys.stdin:
     if not p1_text_lower in page_name.lower():
         continue
 
-    # If the first candidate is our subject, rename them
     p1_text = page_name
     p1_text_lower = page_name.lower()
+    print >> sys.stderr, p1_text
 
     # DS rule 1: true if they appear in spouse KB,
     is_true = '\N'
