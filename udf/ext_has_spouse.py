@@ -5,6 +5,16 @@ import csv, os, sys, re
 # The directory of this UDF file
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
+# Load ids_names dict
+ids_names = {}
+with open(BASE_DIR + '/../data/ids_names.tsv') as f:
+    for i,line in enumerate(f):
+        line = line.split('\t')
+        id = line[0]
+        name = line[1]
+        ids_names(id) = name
+
+
 # Load the spouse dictionary for distant supervision.
 # A person can have multiple spouses
 spouses = set()
@@ -34,6 +44,15 @@ for row in sys.stdin:
     p1_text_lower = p1_text.lower()
     p2_text_lower = p2_text.lower()
 
+    doc_id = sentence_id.split('@')[0]
+    page_name = ids_names[doc_id]
+    if (not p1_text_lower in page_name.lower()):
+        continue
+
+    # If the first candidate is our subject, rename them
+    p1_text = page_name
+    p1_text_lower = page_name.lower()
+    
     # DS rule 1: true if they appear in spouse KB,
     is_true = '\N'
     if (p1_text_lower, p2_text_lower) in spouses or \
