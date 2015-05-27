@@ -1,7 +1,7 @@
 experiment-reports/
 labeling/founder-precision_with_features/input.csv
 data/training-data*
-data/ids_to_names.tsv
+data/ids_names.tsv
 setup_env.sh
 filter
 *.DS_Store

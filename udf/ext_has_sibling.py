@@ -11,9 +11,9 @@ ids_names = {}
 with open(BASE_DIR + '/../data/ids_names.tsv') as f:
     for i,line in enumerate(f):
         line = line.split('\t')
-        id = line[0]
+        doc_id = line[0]
         name = line[1]
-        ids_names(id) = name
+        ids_names[doc_id] = name
 
 # Load the spouse dictionary for distant supervision.
 # A person can have multiple siblings
@@ -45,8 +45,8 @@ for row in sys.stdin:
     p2_text_lower = p2_text.lower()
 
     doc_id = sentence_id.split('@')[0]
-    page_name = ids_names[doc_id]
-    if (not p1_text_lower in page_name.lower()):
+    page_name = ids_names[doc_id] if doc_id in ids_names else ''
+    if not p1_text_lower in page_name.lower():
         continue
 
     # If the first candidate is our subject, rename them
