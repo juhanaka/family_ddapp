@@ -12,11 +12,12 @@ for row in sys.stdin:
 	
 	words = s_words.split(ARR_DELIM)
   	ner_tags = s_ner_tags.split(ARR_DELIM)
-	if words[0].lower() == "he" or words[0].lower() == "she":
-	   is_true = '\N'
-        #Training set ? Supervision Rule ?
-    	print '\t'.join(
-          [ str(x) for x in [
+
+    #Training set ? Supervision Rule ?
+	if words[0].lower() == "he" or words[0].lower() == "she": 
+        is_true = '\N'
+        print '\t'.join(
+            [ str(x) for x in [
             '%s_0' % s_sentence_id,
             p_mention_id,
             0,
@@ -28,7 +29,7 @@ for row in sys.stdin:
             '%s_0-%s' % (s_sentence_id, p_mention_id), 
             doc_id,
             '\N'
-          ]])
+            ]])
 
 	for index in range(1, len(words)):
 		if words[index].lower() == "he" or words[index].lower() == "she":
