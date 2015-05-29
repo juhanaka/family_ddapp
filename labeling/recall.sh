@@ -1,3 +1,12 @@
+# Database Configuration
+export DBNAME=deepdive_family
+
+export PGUSER=${PGUSER:-`whoami`}
+export PGPASSWORD=${PGPASSWORD:-}
+export PGPORT=${PGPORT:-5432}
+export PGHOST=${PGHOST:-localhost}
+
+TASK_DIR="./spouse-recall"
 psql $DBNAME -c "
 COPY (
  SELECT hspi.relation_id
@@ -31,11 +40,11 @@ COPY (
     AND p1.mention_id  = hspi.person1_id
     AND p2.mention_id  = hspi.person2_id
     AND f.relation_id  = hspi.relation_id
-    AND expectation    > 0.9
-  ORDER BY random() LIMIT 100
+  ORDER BY random() LIMIT 2000
 ) TO STDOUT WITH CSV HEADER;
-" > inference/has_spouse.csv
+" > $TASK_DIR/has_spouse_recall.csv
 
+TASK_DIR="./sibling-recall"
 psql $DBNAME -c "
 COPY (
  SELECT hsii.relation_id
@@ -69,11 +78,11 @@ COPY (
     AND p1.mention_id  = hsii.person1_id
     AND p2.mention_id  = hsii.person2_id
     AND f.relation_id  = hsii.relation_id
-    AND expectation    > 0.9
-  ORDER BY random() LIMIT 100
+  ORDER BY random() LIMIT 2000
 ) TO STDOUT WITH CSV HEADER;
-" > inference/has_sibling.csv
+" > $TASK_DIR/has_sibling_recall.csv
 
+TASK_DIR="./parent-recall"
 psql $DBNAME -c "
 COPY (
  SELECT hpi.relation_id
@@ -107,7 +116,6 @@ COPY (
     AND c.mention_id  = hpi.child_id
     AND p.mention_id  = hpi.parent_id
     AND f.relation_id  = hpi.relation_id
-    AND expectation    > 0.9
-  ORDER BY random() LIMIT 100
+  ORDER BY random() LIMIT 2000
 ) TO STDOUT WITH CSV HEADER;
-" > inference/has_parent.csv
+" > $TASK_DIR/has_parent_recall.csv
