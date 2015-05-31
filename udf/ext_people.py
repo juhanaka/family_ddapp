@@ -46,12 +46,12 @@ for row in sys.stdin:
               text = ' '.join(words_temp[start_index:(start_index + length_bis)])
               #if text in names: phrases.append((start_index, length_bis, text))
               phrases.append((start_index, length_bis, text))
-              print >> sys.stderr, text, sentence_id, "name cut! "
+              #print >> sys.stderr, text, sentence_id, "name cut! "
             else:
               text = ' '.join(words_temp[start_index:index])
               #if text in names: phrases.append((start_index, length, text))
               phrases.append((start_index, length, text))
-              print >> sys.stderr, text, sentence_id
+              #print >> sys.stderr, text, sentence_id
             start_index = index_bis + 1
             continue
 
