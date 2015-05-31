@@ -25,8 +25,37 @@ for row in sys.stdin:
     while index < len(words) and ner_tags[index] == "PERSON":
       index += 1
     if index != start_index:   # found a person from "start_index" to "index"
-      length = index - start_index
 
+      if index < len(words) and words[index].lower() == "-lrb-":
+        start_index_bis=index+1
+        while start_index_bis<len(words) and words[start_index_bis].lower() != "-rrb-":
+          start_index_bis +=1
+        if start_index_bis <len (words):
+          start_index_bis+=1
+          index_bis=start_index_bis
+          if index_bis < len(words) and ner_tags[index_bis] == "PERSON":
+            while index_bis < len(words) and ner_tags[index_bis] == "PERSON":
+              index_bis += 1
+            words_temp=words[0:index] + words[start_index_bis:len(words)]
+            index = index + index_bis - start_index_bis
+            start_index_bis=start_index +1
+            while start_index_bis<index and words_temp[start_index_bis] != words_temp[start_index]:
+              start_index_bis +=1
+            length_bis = min(start_index_bis - start_index, index - start_index_bis)
+            if start_index_bis<index and words_temp[start_index:(start_index + length_bis)]==words_temp[start_index_bis:(start_index_bis+ length_bis)]:
+              text = ' '.join(words_temp[start_index:(start_index + length_bis)])
+              #if text in names: phrases.append((start_index, length_bis, text))
+              phrases.append((start_index, length_bis, text))
+              print >> sys.stderr, text, sentence_id, "name cut! "
+            else:
+              text = ' '.join(words_temp[start_index:index])
+              #if text in names: phrases.append((start_index, length, text))
+              phrases.append((start_index, length, text))
+              print >> sys.stderr, text, sentence_id
+            start_index = index_bis + 1
+            continue
+
+      length = index - start_index
       #Identify pattern FirstName1 'AND' FirstName2 LastName
       if length==1 and (start_index+3)<len(words):
         if (words[index].lower()=="and" or words[index].lower()=="&") and ner_tags[index+1]== "PERSON" and ner_tags[index+2]== "PERSON":
