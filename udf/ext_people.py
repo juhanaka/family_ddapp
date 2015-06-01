@@ -26,7 +26,7 @@ for row in sys.stdin:
     while index < len(words) and ner_tags[index] == "PERSON":
       index += 1
     if index != start_index:   # found a person from "start_index" to "index"
-
+      length = index - start_index
       if index < len(words) and words[index].lower() == "-lrb-":
         start_index_bis=index+1
         while start_index_bis<len(words) and words[start_index_bis].lower() != "-rrb-":
@@ -70,7 +70,6 @@ for row in sys.stdin:
           index=index_bis
 
       if not parenthesis_pattern:
-        length = index - start_index
         #Identify pattern FirstName1 'AND' FirstName2 LastName
         if length==1 and (start_index+3)<len(words):
           if (words[index].lower()=="and" or words[index].lower()=="&") and ner_tags[index+1]== "PERSON" and ner_tags[index+2]== "PERSON":
