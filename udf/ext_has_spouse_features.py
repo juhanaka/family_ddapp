@@ -5,8 +5,7 @@ import ddlib     # DeepDive python utility
 from itertools import combinations
 
 ARR_DELIM = '~^~'
-WORDS_BETWEEN_THRESHOLD = 20
-ORGANIZATIONS_BETWEEN_THRESHOLD = 1
+PEOPLE_BETWEEN_BUCKETS = [(0,1),(1,2),(2,10000)]
 
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -59,7 +58,9 @@ for row in sys.stdin:
         parts = feature[feature.find('[')+1: feature.rfind(']')].split(' ')
         if feature.startswith('NER_SEQ'):
             people_between = sum(part == 'PERSON' for part in parts)
-            features.add('people_between={0}'.format(people_between))
+            people_between_bucket = [i for i, rng in enumerate(PEOPLE_BETWEEN_BUCKETS)
+                                     if people_between in range(rng[0],rng[1])][0]
+            features.add('people_between_bucket={0}'.format(people_between_bucket))
         if 'LENGTHS' in feature or 'NER' in feature or 'LEMMA' in feature:
             continue
         reject = False
