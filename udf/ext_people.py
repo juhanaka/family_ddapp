@@ -21,6 +21,7 @@ for row in sys.stdin:
 
   while start_index < len(words):
     # Checking if there is a PERSON phrase starting from start_index
+    parenthesis_pattern=False
     index = start_index
     while index < len(words) and ner_tags[index] == "PERSON":
       index += 1
@@ -33,6 +34,7 @@ for row in sys.stdin:
         if start_index_bis <len (words):
           start_index_bis+=1
           index_bis=start_index_bis
+          parenthesis_pattern=True
           if index_bis < len(words) and ner_tags[index_bis] == "PERSON":
             while index_bis < len(words) and ner_tags[index_bis] == "PERSON":
               index_bis += 1
@@ -52,34 +54,47 @@ for row in sys.stdin:
               #if text in names: phrases.append((start_index, length, text))
               phrases.append((start_index, length, text))
               #print >> sys.stderr, text, sentence_id
-            start_index = index_bis + 1
-            continue
+          else:
+            start_index_bis=start_index +1
+            while start_index_bis<index and words[start_index_bis] != words[start_index]:
+              start_index_bis +=1
+            length_bis = min(start_index_bis - start_index, index - start_index_bis)
+            if start_index_bis<index and words[start_index:(start_index + length_bis)]==words[start_index_bis:(start_index_bis+ length_bis)]:
+              text = ' '.join(words[start_index:(start_index + length_bis)])
+              #if text in names: phrases.append((start_index, length_bis, text))
+              phrases.append((start_index, length_bis, text))
+            else:
+              text = ' '.join(words[start_index:index])
+              #if text in names: phrases.append((start_index, length, text))
+              phrases.append((start_index, length, text))
+          index=index_bis
 
-      length = index - start_index
-      #Identify pattern FirstName1 'AND' FirstName2 LastName
-      if length==1 and (start_index+3)<len(words):
-        if (words[index].lower()=="and" or words[index].lower()=="&") and ner_tags[index+1]== "PERSON" and ner_tags[index+2]== "PERSON":
-          index_fin = index+3
-          while index_fin < len(words) and ner_tags[index_fin]== "PERSON":
-            index_fin += 1
-          text = ' '.join(words[start_index:index]+words[(index+2):index_fin])
-          phrases.append((start_index, (index_fin - index -1), text))
+      if not parenthesis_pattern:
+        length = index - start_index
+        #Identify pattern FirstName1 'AND' FirstName2 LastName
+        if length==1 and (start_index+3)<len(words):
+          if (words[index].lower()=="and" or words[index].lower()=="&") and ner_tags[index+1]== "PERSON" and ner_tags[index+2]== "PERSON":
+            index_fin = index+3
+            while index_fin < len(words) and ner_tags[index_fin]== "PERSON":
+              index_fin += 1
+            text = ' '.join(words[start_index:index]+words[(index+2):index_fin])
+            phrases.append((start_index, (index_fin - index -1), text))
+          else:
+            text = ' '.join(words[start_index:index])
+            phrases.append((start_index, length, text))
         else:
-          text = ' '.join(words[start_index:index])
-          phrases.append((start_index, length, text))
-      else:
-        start_index_bis=start_index +1
-        while start_index_bis<index and words[start_index_bis] != words[start_index]:
-          start_index_bis +=1
-        length_bis = min(start_index_bis - start_index, index - start_index_bis)
-        if start_index_bis<index and words[start_index:(start_index + length_bis)]==words[start_index_bis:(start_index_bis+ length_bis)]:
-          text = ' '.join(words[start_index:(start_index + length_bis)])
-          #if text in names: phrases.append((start_index, length_bis, text))
-          phrases.append((start_index, length_bis, text))
-        else:
-          text = ' '.join(words[start_index:index])
-          #if text in names: phrases.append((start_index, length, text))
-          phrases.append((start_index, length, text))
+          start_index_bis=start_index +1
+          while start_index_bis<index and words[start_index_bis] != words[start_index]:
+            start_index_bis +=1
+          length_bis = min(start_index_bis - start_index, index - start_index_bis)
+          if start_index_bis<index and words[start_index:(start_index + length_bis)]==words[start_index_bis:(start_index_bis+ length_bis)]:
+            text = ' '.join(words[start_index:(start_index + length_bis)])
+            #if text in names: phrases.append((start_index, length_bis, text))
+            phrases.append((start_index, length_bis, text))
+          else:
+            text = ' '.join(words[start_index:index])
+            #if text in names: phrases.append((start_index, length, text))
+            phrases.append((start_index, length, text))
     start_index = index + 1
 
   # Output a tuple for each PERSON phrase
