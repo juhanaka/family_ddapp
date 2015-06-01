@@ -15,6 +15,8 @@ for line in sys.stdin:
     row = json.loads(line)
     if row['sentence_id'].strip() in bad_sentences:
         continue
+    if len(row['words']) > 50:
+        continue
     print json.dumps(row)
 
 

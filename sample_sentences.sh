@@ -37,6 +37,6 @@ FROM sentences_intermediate_warc
 WHERE wikipedia_url IN
 (SELECT * FROM
     (SELECT DISTINCT wikipedia_url FROM sentences_intermediate_warc) as b
-ORDER BY random() LIMIT 80000);
+ORDER BY random() LIMIT 500000);
 """
 
