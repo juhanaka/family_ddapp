@@ -29,13 +29,13 @@ def people_adjustment_bis(words_tab, start_index_func, index_func, phrases_func)
 
 def people_adjustment(words, start_index, index, phrases):
   start_index_lrb = start_index
-  while start_index_lrb < index and words[start_index_lrb].lower() != "-lrb-":
+  while start_index_lrb < index and words[start_index_lrb].lower() != "-lrb-" and words[start_index_lrb].lower() != "``":
     start_index_lrb +=1
   if start_index_lrb == index:
     people_adjustment_bis(words, start_index, index, phrases)
   else:
     start_index_rrb = start_index_lrb +1
-    while start_index_rrb < index and words[start_index_rrb].lower() != "-rrb-":
+    while start_index_rrb < index and words[start_index_rrb].lower() != "-rrb-" and words[start_index_rrb].lower() != "''":
       start_index_rrb +=1
     if start_index_rrb == index:
       people_adjustment_bis(words, start_index, start_index_lrb, phrases)
@@ -69,6 +69,30 @@ def pattern_parenthesis_end_of_word(words, start_index, index, phrases):
       index=index_bis
   return (parenthesis_pattern, index)
 
+
+def pattern_quotation_mark_end_of_word(words, start_index, index, phrases):
+  quotation_mark_pattern=False
+  if index < len(words) and words[index].lower() == "``":
+    start_index_bis=index+1
+    while start_index_bis<len(words) and words[start_index_bis].lower() != "''":
+      start_index_bis +=1
+    if start_index_bis <len (words):
+      start_index_bis+=1
+      index_bis=start_index_bis
+      quotation_mark_pattern=True
+      if index_bis < len(words) and ner_tags[index_bis] == "PERSON":
+        while index_bis < len(words) and ner_tags[index_bis] == "PERSON":
+          index_bis += 1
+        words_temp=words[0:index] + words[start_index_bis:len(words)]
+        index = index + index_bis - start_index_bis
+        people_adjustment(words_temp, start_index, index, phrases)
+      else:
+        people_adjustment(words, start_index, index, phrases)
+      index=index_bis
+  return (quotation_mark_pattern, index)
+
+
+
 def pattern_first1_and_first2_last_name(words, start_index, index, phrases):
   pattern_detected = False
   length = index - start_index
@@ -101,18 +125,21 @@ for row in sys.stdin:
 
   while start_index < len(words):
     # Checking if there is a PERSON phrase starting from start_index
-    parenthesis_pattern_end_of_word=False
     index = start_index
     while index < len(words) and ner_tags[index] == "PERSON":
       index += 1
     if index != start_index:   # found a person from "start_index" to "index"
 
-      parenthesis_pattern_end_of_word, index_bis = pattern_parenthesis_end_of_word(words, start_index, index, phrases)
-      if parenthesis_pattern_end_of_word:
+      quotation_mark_pattern_end_of_word, index_bis = pattern_quotation_mark_end_of_word(words, start_index, index, phrases)
+      if quotation_mark_pattern_end_of_word:
         index=index_bis
       else:
-        if not pattern_first1_and_first2_last_name(words, start_index, index, phrases):
-          people_adjustment(words, start_index, index, phrases)
+        parenthesis_pattern_end_of_word, index_bis = pattern_parenthesis_end_of_word(words, start_index, index, phrases)
+        if parenthesis_pattern_end_of_word:
+          index=index_bis
+        else:
+          if not pattern_first1_and_first2_last_name(words, start_index, index, phrases):
+            people_adjustment(words, start_index, index, phrases)
 
     start_index = index + 1
 
