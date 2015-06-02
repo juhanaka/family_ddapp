@@ -3002,31 +3002,40 @@
    "is_correct": false
   },
   "3690699@29_36-3690699@29_19": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "636954@68_17-636954@68_13": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "3204292@1_0-3204292@1_18": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "618921@29_0-618921@29_9": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "31429799@16_0-31429799@16_17": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "18253961@49_65-18253961@49_49": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "24533885@5_0-24533885@5_11": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "38845020@72_0-38845020@72_72": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "33075232@22_4-33075232@22_8": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "4259625@42_36-4259625@42_54": {
    "is_correct": true
@@ -3036,268 +3045,348 @@
    "False negative": true
   },
   "42466495@12_5-42466495@12_13": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "7876787@4_1-7876787@4_21": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "44442757@3_0-44442757@3_16": {
    "True positive": true,
    "is_correct": true
   },
   "29106633@27_2-29106633@27_22": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "14197277@6_3-14197277@6_16": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "1019407@9_0-1019407@9_7": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "22872843@1_3-22872843@1_0": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "2952161@3_29-2952161@3_19": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "39132257@20_0-39132257@20_77": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "1837121@5_0-1837121@5_9": {
    "is_correct": false,
    "False positive": true
   },
   "2012187@54_2-2012187@54_0": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "6138391@19_29-6138391@19_1": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "27921404@1_7-27921404@1_75": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "18435187@1_0-18435187@1_71": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "44348092@1_0-44348092@1_22": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "37969715@29_3-37969715@29_24": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "167626@51_12-167626@51_0": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "32610109@17_13-32610109@17_9": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "10872882@2_13-10872882@2_10": {
-   "is_correct": true
+   "is_correct": true,
+   "False negative": true
   },
   "3012635@9_5-3012635@9_23": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "2104801@28_0-2104801@28_8": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "5276114@3_0-5276114@3_17": {
    "is_correct": true,
    "True positive": true
   },
   "15638244@39_7-15638244@39_0": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "236680@127_1-236680@127_6": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "29027580@16_0-29027580@16_20": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "147156@149_4-147156@149_2": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "41752709@75_53-41752709@75_23": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "25668866@26_22-25668866@26_17": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "5625742@8_39-5625742@8_45": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "36092897@33_0-36092897@33_9": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "297700@19_8-297700@19_2": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "314540@28_2-314540@28_12": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "34760565@23_4-34760565@23_22": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "2847207@19_0-2847207@19_12": {
-   "is_correct": true
+   "is_correct": true,
+   "False positive": true
   },
   "29787740@124_4-29787740@124_42": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "312892@13_19-312892@13_21": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "22679264@4_23-22679264@4_18": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "25216625@48_7-25216625@48_11": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "10849620@1_24-10849620@1_4": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "54958@27_49-54958@27_25": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "410193@19_16-410193@19_5": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "399199@23_20-399199@23_8": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "985092@37_1-985092@37_8": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "5814882@1_3-5814882@1_6": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "24623128@19_0-24623128@19_25": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "3448840@37_0-3448840@37_8": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "140422@359_9-140422@359_0": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "25652096@1_0-25652096@1_14": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "15718936@5_0-15718936@5_48": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "6462657@1_10-6462657@1_4": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "546393@29_3-546393@29_17": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "7347375@35_0-7347375@35_2": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "3955360@10_13-3955360@10_18": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "161185@43_9-161185@43_46": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "2407513@1_1-2407513@1_16": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "1288974@16_46-1288974@16_48": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "7130698@41_0-7130698@41_10": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "2076481@4_4-2076481@4_7": {
    "is_correct": false,
    "False negative": true
   },
   "1677015@52_14-1677015@52_34": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "30864435@8_0-30864435@8_10": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "1293722@18_62-1293722@18_56": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "5627881@13_3-5627881@13_8": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "748520@25_37-748520@25_9": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "6690428@4_0-6690428@4_9": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "20153967@3_9-20153967@3_21": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "26975195@18_5-26975195@18_9": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "598470@26_4-598470@26_25": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "1695863@5_0-1695863@5_6": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "1440545@13_0-1440545@13_23": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "162526@40_7-162526@40_18": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "1266869@38_6-1266869@38_19": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "6119810@4_16-6119810@4_7": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "18891654@20_7-18891654@20_42": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "15759655@31_17-15759655@31_19": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "25096281@5_0-25096281@5_11": {
    "is_correct": true,
    "True positive": true
   },
   "383328@102_5-383328@102_45": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "728820@25_16-728820@25_40": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "313807@168_23-313807@168_4": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "5725924@37_0-5725924@37_14": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "2144790@73_0-2144790@73_4": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "38106037@16_14-38106037@16_24": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "21819438@91_14-21819438@91_0": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "26205153@10_13-26205153@10_35": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "26700890@2_6-26700890@2_14": {
    "is_correct": true,
    "True positive": true
   },
   "7363237@12_0-7363237@12_15": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "225860@31_0-225860@31_6": {
-   "is_correct": true
+   "is_correct": true,
+   "True negative": true
   },
   "307943@78_0-307943@78_70": {
    "is_correct": true
@@ -3779,6 +3868,15 @@
   },
   "1925701@10_4-1925701@10_37": {
    "is_correct": true
+  },
+  "32746263@83_51-32746263@83_109": {
+   "True negative": true
+  },
+  "6718091@48_0-6718091@48_19": {
+   "True negative": true
+  },
+  "25879546@15_7-25879546@15_10": {
+   "True negative": true
   }
  }
 }

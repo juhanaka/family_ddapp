@@ -24,7 +24,7 @@ COPY (
       , features[1:6] -- top 6 features with weights
       , weights[1:6]
    FROM has_spouse_is_true_inference hspi
-      , sentences s
+      , sentences_filtered s
       , people_mentions p1
       , people_mentions p2
       , ( -- find features relevant TO the relation
@@ -62,7 +62,7 @@ COPY (
       , features[1:6] -- top 6 features with weights
       , weights[1:6]
    FROM has_sibling_is_true_inference hsii
-      , sentences s
+      , sentences_filtered s
       , people_mentions p1
       , people_mentions p2
       , ( -- find features relevant TO the relation
@@ -100,7 +100,7 @@ COPY (
       , features[1:6] -- top 6 features with weights
       , weights[1:6]
    FROM has_parent_is_true_inference hpi
-      , sentences s
+      , sentences_filtered s
       , people_mentions c
       , people_mentions p
       , ( -- find features relevant TO the relation
