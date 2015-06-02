@@ -44,8 +44,6 @@ def people_adjustment(words, start_index, index, phrases):
       words_temp=words[0:start_index_lrb] + words[start_index_bis:len(words)]
       index = index - start_index_bis + start_index_lrb 
       people_adjustment_bis(words_temp, start_index, index, phrases)
-      print >> sys.stderr, "parenthesis bad tag"
-      print >> sys.stderr, words
 
 
 
