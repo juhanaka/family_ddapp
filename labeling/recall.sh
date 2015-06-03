@@ -42,7 +42,7 @@ COPY (
     AND f.relation_id  = hspi.relation_id
   ORDER BY random() LIMIT 2000
 ) TO STDOUT WITH CSV HEADER;
-" > $TASK_DIR/has_spouse_recall.csv
+" > $TASK_DIR/input.csv
 
 TASK_DIR="./sibling-recall"
 psql $DBNAME -c "
@@ -80,7 +80,7 @@ COPY (
     AND f.relation_id  = hsii.relation_id
   ORDER BY random() LIMIT 2000
 ) TO STDOUT WITH CSV HEADER;
-" > $TASK_DIR/has_sibling_recall.csv
+" > $TASK_DIR/input.csv
 
 TASK_DIR="./parent-recall"
 psql $DBNAME -c "
@@ -118,4 +118,4 @@ COPY (
     AND f.relation_id  = hpi.relation_id
   ORDER BY random() LIMIT 2000
 ) TO STDOUT WITH CSV HEADER;
-" > $TASK_DIR/has_parent_recall.csv
+" > $TASK_DIR/input.csv
