@@ -24,12 +24,11 @@ lines = open(BASE_DIR + '/../data/training-data-parent.tsv').readlines()
 for line in lines:
     arr = re.split('\s*\t\s*', line.strip().lower())
     if len(arr) != 3:
-        # print >> sys.stderr, line
         continue
     nameKid, nameParent, relation = arr
     if relation=="1":
-        kid_parent_relationship.add((nameKid, nameParent))  # Add a spouse relation pair
-        people_already_seen_as_kid.add(nameKid)    # Record the person as married
+        kid_parent_relationship.add((nameKid, nameParent))
+        people_already_seen_as_kid.add(nameKid)
         people_already_seen_as_parent.add(nameParent)
     else:
         non_kid_parent_relationship.add((nameKid, nameParent))
@@ -37,40 +36,34 @@ for line in lines:
 # For each input tuple
 for row in sys.stdin:
     parts = row.strip().split('\t')
-    sentence_id, p1_id, p1_text, p2_id, p2_text = parts
+    sentence_id, subject_id, subject_text, parent_id, parent_text = parts
 
-    p1_text = p1_text.strip()
-    p2_text = p2_text.strip()
-    p1_text_lower = p1_text.lower()
-    p2_text_lower = p2_text.lower()
+    subject_text = subject_text.strip()
+    parent_text = parent_text.strip()
+    subject_text_lower = subject_text.lower()
+    parent_text_lower = parent_text.lower()
 
     doc_id = sentence_id.split('@')[0]
     page_name = ids_names[doc_id] if doc_id in ids_names else ''
-    if not p1_text_lower in page_name.lower():
+    if not subject_text_lower in page_name.lower():
         continue
 
-    p1_text = page_name
-    p1_text_lower = page_name.lower()
+    subject_text = page_name
+    subject_text_lower = page_name.lower()
 
-    # DS rule 1: true if they appear in spouse KB,
     is_true = '\N'
-    if (p1_text_lower, p2_text_lower) in kid_parent_relationship:
+    if (subject_text_lower, parent_text_lower) in kid_parent_relationship:
         is_true = '1'
-    # DS rule 2: false if they appear in non-spouse KB
-    elif (p1_text_lower, p2_text_lower) in non_kid_parent_relationship:
+    elif (subject_text_lower, parent_text_lower) in non_kid_parent_relationship:
         is_true = '0'
-    # DS rule 3: false if they appear to be in same person
-    elif (p1_text == p2_text) or (p1_text in p2_text) or (p2_text in p1_text):
-        is_true = '0'
-    # DS rule 4 false if they are both married, but not married to each other:
-    elif p1_text_lower in people_already_seen_as_kid and p2_text_lower in people_already_seen_as_parent:
+    elif (subject_text == parent_text) or (subject_text in parent_text) or (parent_text in subject_text):
         is_true = '0'
 
     # Output relation candidates into output table
     print '\t'.join([
-        p1_id, p2_id, sentence_id,
-        "%s-%s" %(p1_text, p2_text),
+        subject_id, parent_id, sentence_id,
+        "%s-%s" %(subject_text, parent_text),
         is_true,
-        "%s-%s" %(p1_id, p2_id),
+        "%s-%s" %(subject_id, parent_id),
         '\N'   # leave "id" blank for system!
     ])
