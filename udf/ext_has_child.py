@@ -37,37 +37,34 @@ for line in lines:
 # For each input tuple
 for row in sys.stdin:
     parts = row.strip().split('\t')
-    sentence_id, p1_id, p1_text, p2_id, p2_text = parts
+    sentence_id, subject_id, subject_text, kid_id, kid_text = parts
 
-    p1_text = p1_text.strip()
-    p2_text = p2_text.strip()
-    p1_text_lower = p1_text.lower()
-    p2_text_lower = p2_text.lower()
+    subject_text = subject_text.strip()
+    kid_text = kid_text.strip()
+    subject_text_lower = subject_text.lower()
+    kid_text_lower = kid_text.lower()
 
     doc_id = sentence_id.split('@')[0]
     page_name = ids_names[doc_id] if doc_id in ids_names else ''
-    if not p1_text_lower in page_name.lower():
+    if not subject_text_lower in page_name.lower():
         continue
+        # autocomp
+    subject_text = page_name
+    subject_text_lower = page_name.lower()
 
-    p1_text = page_name
-    p1_text_lower = page_name.lower()
-
-    # DS rule 1: true if they appear in dict
     is_true = '\N'
-    if (p1_text_lower, p2_text_lower) in parent_kid_relationship:
+    if (subject_text_lower, kid_text_lower) in parent_kid_relationship:
         is_true = '1'
-    # DS rule 2 : false if they apper as neg examples
-    elif (p1_text_lower, p2_text_lower) in non_parent_kid_relationship:
+    elif (subject_text_lower, kid_text_lower) in non_parent_kid_relationship:
         is_true = '0'
-    # DS rule 3: false if it's the same person
-    elif (p1_text == p2_text) or (p1_text in p2_text) or (p2_text in p1_text):
+    elif (subject_text == kid_text) or (subject_text in kid_text) or (kid_text in subject_text):
         is_true = '0'
 
     # Output relation candidates into output table
     print '\t'.join([
-        p1_id, p2_id, sentence_id,
-        "%s-%s" %(p1_text, p2_text),
+        subject_id, kid_id, sentence_id,
+        "%s-%s" %(subject_text, kid_text),
         is_true,
-        "%s-%s" %(p1_id, p2_id),
+        "%s-%s" %(subject_id, kid_id),
         '\N'   # leave "id" blank for system!
     ])
