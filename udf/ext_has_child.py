@@ -15,7 +15,7 @@ with open(BASE_DIR + '/../data/ids_names.tsv') as f:
         ids_names[doc_id] = name
 
 # Load the parent dictionary for distant supervision.
-# The first person is the child, the second the parent
+# The first person is the parent, the second the kid
 parent_kid_relationship = set()
 people_already_seen_as_kid = set()
 people_already_seen_as_parent = set()
@@ -28,11 +28,11 @@ for line in lines:
         continue
     nameParent, nameKid, relation = arr
     if relation=="1":
-        parent_kid_relationship.add((nameParent, nameKid))  # Add a spouse relation pair
-        people_already_seen_as_kid.add(nameKid)    # Record the person as married
+        parent_kid_relationship.add((nameParent, nameKid)) 
+        people_already_seen_as_kid.add(nameKid)   
         people_already_seen_as_parent.add(nameParent)
     else:
-        non_parent_kid_relationship.add((nameKid, nameParent))
+        non_parent_kid_relationship.add((nameParent, nameKid))
 
 # For each input tuple
 for row in sys.stdin:
@@ -52,19 +52,16 @@ for row in sys.stdin:
     p1_text = page_name
     p1_text_lower = page_name.lower()
 
-    # DS rule 1: true if they appear in spouse KB,
+    # DS rule 1: true if they appear in dict
     is_true = '\N'
     if (p1_text_lower, p2_text_lower) in parent_kid_relationship:
         is_true = '1'
-    # DS rule 2: false if they appear in non-spouse KB
+    # DS rule 2 : false if they apper as neg examples
     elif (p1_text_lower, p2_text_lower) in non_parent_kid_relationship:
         is_true = '0'
-    # DS rule 3: false if they appear to be in same person
+    # DS rule 3: false if it's the same person
     elif (p1_text == p2_text) or (p1_text in p2_text) or (p2_text in p1_text):
         is_true = '0'
-    # DS rule 4 false if they are both married, but not married to each other:
-    #elif p1_text_lower in people_already_seen_as_kid and p2_text_lower in people_already_seen_as_parent:
-    #    is_true = '0'
 
     # Output relation candidates into output table
     print '\t'.join([
