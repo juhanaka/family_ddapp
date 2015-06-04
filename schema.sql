@@ -110,3 +110,8 @@ DROP TABLE IF EXISTS has_parent_features CASCADE;
 CREATE TABLE has_parent_features(
   relation_id text,
   feature text);
+
+DROP TABLE IF EXISTS has_child_features CASCADE;
+CREATE TABLE has_child_features(
+  relation_id text,
+  feature text);
