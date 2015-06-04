@@ -3625,6 +3625,108 @@
   "28987647@49_0-28987647@49_9": {
    "is_correct": false,
    "False positive": true
+  },
+  "26942@70_6-26942@70_9": {
+   "true_positive": true
+  },
+  "10720837@8_0-10720837@8_6": {
+   "true_positive": true
+  },
+  "3637202@104_0-3637202@104_2": {
+   "true_positive": true
+  },
+  "414683@34_0-414683@34_3": {
+   "true_positive": true
+  },
+  "30100899@52_3-30100899@52_5": {
+   "true_positive": true
+  },
+  "739707@23_3-739707@23_10": {
+   "true_positive": true
+  },
+  "802763@91_0-802763@91_2": {
+   "true_positive": true
+  },
+  "4163@50_0-4163@50_5": {
+   "true_positive": true
+  },
+  "2791854@11_0-2791854@11_5": {
+   "true_positive": true
+  },
+  "17987330@17_8-17987330@17_10": {
+   "false_negative": true
+  },
+  "255887@97_0-255887@97_13": {
+   "false_negative": true
+  },
+  "4667@78_2-4667@78_15": {
+   "true_positive": null
+  },
+  "30872250@8_0-30872250@8_2": {
+   "true_positive": true
+  },
+  "36244064@61_0-36244064@61_7": {
+   "true_positive": true
+  },
+  "3074392@13_6-3074392@13_11": {
+   "true_positive": true
+  },
+  "14279@58_6-14279@58_12": {
+   "false_negative": true
+  },
+  "147368@59_0-147368@59_5": {
+   "true_positive": true
+  },
+  "39947050@20_0-39947050@20_6": {
+   "true_positive": true
+  },
+  "36393418@15_0-36393418@15_9": {
+   "true_positive": true
+  },
+  "1800841@88_3-1800841@88_8": {
+   "true_positive": true
+  },
+  "19629375@4_1-19629375@4_25": {
+   "true_positive": null
+  },
+  "276405@60_3-276405@60_12": {
+   "true_positive": true
+  },
+  "1959692@112_0-1959692@112_8": {
+   "true_positive": true
+  },
+  "57454@60_3-57454@60_6": {
+   "true_positive": true
+  },
+  "6505295@12_7-6505295@12_10": {
+   "true_positive": true
+  },
+  "18746459@15_1-18746459@15_3": {
+   "false_negative": true
+  },
+  "10965@63_0-10965@63_12": {
+   "true_positive": true
+  },
+  "34110219@22_0-34110219@22_6": {
+   "false_negative": true
+  },
+  "15858@198_0-15858@198_4": {
+   "true_positive": true
+  },
+  "5953677@12_2-5953677@12_4": {
+   "true_positive": true
+  },
+  "18586089@2_2-18586089@2_6": {
+   "false_negative": true
+  },
+  "35837701@34_7-35837701@34_11": {
+   "true_positive": true
+  },
+  "1770105@2_0-1770105@2_3": {
+   "true_positive": true
+  },
+  "489510@32_13-489510@32_17": {
+   "true_positive": true
   }
  }
 }
