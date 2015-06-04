@@ -68,18 +68,29 @@ CREATE TABLE has_sibling(
   sentence_id text,
   description text,
   is_true boolean,
-  relation_id text, -- unique identifier for has_spouse
+  relation_id text, -- unique identifier for has_sibling
   id bigint   -- reserved for DeepDive
   );
 
-DROP TABLE IF EXISTS has_parent CASCADE;
-CREATE TABLE has_parent(
+DROP TABLE IF EXISTS has_child CASCADE;
+CREATE TABLE has_child(
   parent_id text,
   child_id text,
   sentence_id text,
   description text,
   is_true boolean,
-  relation_id text, -- unique identifier for has_spouse
+  relation_id text, -- unique identifier for has_child
+  id bigint   -- reserved for DeepDive
+  );
+
+DROP TABLE IF EXISTS has_parent CASCADE;
+CREATE TABLE has_parent(
+  child_id text,
+  parent_id text,
+  sentence_id text,
+  description text,
+  is_true boolean,
+  relation_id text, -- unique identifier for has_parent
   id bigint   -- reserved for DeepDive
   );
 
