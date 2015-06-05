@@ -27,22 +27,21 @@ for row in sys.stdin:
 
     for i in range (0, len(s_people_ner_tags)):
         if i < p_start_position or i >= (p_start_position + p_length):
+            # Distance rule: if the sentence with people_mentions contains another person or a pronoun, this candidate is not a positive training example
             if s_people_ner_tags[i]== "PERSON" or s_people_words[i].lower() in words_not_true_training_data:
                 potential_true_training_set = False
-                #print >> sys.stderr, "False", s_people_ner_tags[i], i
 
     for index in range(0, len(s_sent_words)):
         if s_sent_words[index].lower() == "he" or s_sent_words[index].lower() == "she":
             first_pronoun +=1
             phrases.append(index)
+        #Distance rule: If the sentence with our pronoun contains another person mentioned, this candidate is not a positive training example
         if s_sent_ner_tags[index] == "PERSON":
             potential_true_training_set = False
 
+    #Distance rule: if there is more than one pronoun in this sentence, this candidate is not a positive training example
     if first_pronoun != 1:
         potential_true_training_set = False
-
-    #print >> sys.stderr, s_sentence_id, first_pronoun, potential_true_training_set, p_start_position, p_length
-
 
     if potential_true_training_set==True:
         is_true='1'
