@@ -28,8 +28,8 @@ for line in lines:
         continue
     nameParent, nameKid, relation = arr
     if relation=="1":
-        parent_kid_relationship.add((nameParent, nameKid)) 
-        people_already_seen_as_kid.add(nameKid)   
+        parent_kid_relationship.add((nameParent, nameKid))
+        people_already_seen_as_kid.add(nameKid)
         people_already_seen_as_parent.add(nameParent)
     else:
         non_parent_kid_relationship.add((nameParent, nameKid))
@@ -52,22 +52,22 @@ for row in sys.stdin:
     p1_text = page_name
     p1_text_lower = page_name.lower()
 
-    # DS rule 1: true if they appear in dict
+
     is_true = '\N'
     if (p1_text_lower, p2_text_lower) in parent_kid_relationship:
         is_true = '1'
-    # DS rule 2 : false if they apper as neg examples
+
     elif (p1_text_lower, p2_text_lower) in non_parent_kid_relationship:
         is_true = '0'
-    # DS rule 3: false if it's the same person
+
     elif (p1_text == p2_text) or (p1_text in p2_text) or (p2_text in p1_text):
         is_true = '0'
 
-    # Output relation candidates into output table
+
     print '\t'.join([
         p1_id, p2_id, sentence_id,
         "%s-%s" %(p1_text, p2_text),
         is_true,
         "%s-%s" %(p1_id, p2_id),
-        '\N'   # leave "id" blank for system!
+        '\N'
     ])
