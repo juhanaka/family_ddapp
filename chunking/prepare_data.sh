@@ -36,3 +36,9 @@ psql -c """create table chunking_candidates(
   document_id text,
   id bigint   -- reserved for DeepDive
   );""" $DBNAME
+
+psql $DBNAME -c "DROP TABLE IF EXISTS chunking_features CASCADE;"
+psql $DBNAME -c """CREATE TABLE chunking_features(
+  relation_id text,
+  feature text);
+"""
