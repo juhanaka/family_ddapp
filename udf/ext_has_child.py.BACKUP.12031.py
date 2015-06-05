@@ -52,12 +52,27 @@ for row in sys.stdin:
     subject_text = page_name
     subject_text_lower = page_name.lower()
 
+<<<<<<< HEAD
+    p1_text = page_name
+    p1_text_lower = page_name.lower()
+
+
+=======
+>>>>>>> 38b710ed0b160b8bdaf80bdb2a2c46138f7e4aa6
     is_true = '\N'
     if (subject_text_lower, kid_text_lower) in parent_kid_relationship:
         is_true = '1'
+<<<<<<< HEAD
+
+    elif (p1_text_lower, p2_text_lower) in non_parent_kid_relationship:
+        is_true = '0'
+
+    elif (p1_text == p2_text) or (p1_text in p2_text) or (p2_text in p1_text):
+=======
     elif (subject_text_lower, kid_text_lower) in non_parent_kid_relationship:
         is_true = '0'
     elif (subject_text == kid_text) or (subject_text in kid_text) or (kid_text in subject_text):
+>>>>>>> 38b710ed0b160b8bdaf80bdb2a2c46138f7e4aa6
         is_true = '0'
 
 
@@ -65,6 +80,11 @@ for row in sys.stdin:
         subject_id, kid_id, sentence_id,
         "%s-%s" %(subject_text, kid_text),
         is_true,
+<<<<<<< HEAD
+        "%s-%s" %(p1_id, p2_id),
+        '\N'
+=======
         "%s-%s" %(subject_id, kid_id),
         '\N'   # leave "id" blank for system!
+>>>>>>> 38b710ed0b160b8bdaf80bdb2a2c46138f7e4aa6
     ])
