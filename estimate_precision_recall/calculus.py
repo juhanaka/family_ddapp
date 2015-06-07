@@ -32,6 +32,4 @@ with open('results.tsv') as f:
     ax.set_title("Recall")
     ax.scatter (expect, recall)
 
-
-
     plt.show()

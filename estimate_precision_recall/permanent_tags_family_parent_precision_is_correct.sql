@@ -141,4 +141,3 @@ COPY permanent_tags_family_parent_precision_is_correct (relation_id, sentence_id
 --
 -- PostgreSQL database dump complete
 --
-

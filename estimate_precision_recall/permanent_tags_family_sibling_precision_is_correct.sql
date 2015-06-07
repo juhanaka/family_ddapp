@@ -246,9 +246,6 @@ COPY permanent_tags_family_sibling_precision_is_correct (relation_id, sentence_i
 843174@22_0-843174@22_8	843174@22	true	Angela Hitler-Geli	\N
 30980571@7_6-30980571@7_15	30980571@7	true	Truman Lowe-Irene	\N
 \.
-
-
 --
 -- PostgreSQL database dump complete
 --
-
