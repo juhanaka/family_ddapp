@@ -74,7 +74,13 @@ for row in sys.stdin:
     for feature in ddlib.get_generic_features_relation(sentence, span1, span2):
         parts = feature[feature.find('[')+1: feature.rfind(']')].split(' ')
         if 'BETW' in feature:
-            features.add(feature)
+            if 'poss' in parts:
+                for word in words_between.elements[::-1]:
+                    if not word in punctuation:
+                        features.add(feature+word)
+                        break
+            else:
+                features.add(feature)
         if 'BETW' in feature and all([part == 'nn' for part in parts]):
             features.add('no_dependency')
         if feature.startswith('BETW_[') and len(parts) > 5:
@@ -85,7 +91,7 @@ for row in sys.stdin:
                                      if people_between in range(rng[0],rng[1])][0]
             features.add('people_between_bucket={0}'.format(people_between_bucket))
 
-        if people_between != 0 or 'LENGTHS' in feature or 'NER' in feature or 'LEMMA' in feature:
+        if people_between != 0 or 'LENGTHS' in feature or 'NER' in feature or 'LEMMA' in feature or 'BETW' in feature:
             continue
 
         reject = False
