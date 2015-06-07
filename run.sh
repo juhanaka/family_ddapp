@@ -11,9 +11,15 @@ fi
 
 export APP_HOME=`cd $(dirname $0)/; pwd`
 
-# Database Configuration
-export DBNAME=deepdive_family
+# Database Configuration raiders
+#export DBNAME=cs341_15
+#export PGUSER=${PGUSER:-yahres}
+#export PGPASSWORD=${PGPASSWORD:-}
+#export PGPORT=${PGPORT:-6432}
+#export PGHOST=${PGHOST:-raiders5.stanford.edu}
 
+# Database Configuration local
+export DBNAME=deepdive_family
 export PGUSER=${PGUSER:-`whoami`}
 export PGPASSWORD=${PGPASSWORD:-}
 export PGPORT=${PGPORT:-5432}
