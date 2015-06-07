@@ -138,7 +138,7 @@ COPY (
               , ARRAY_AGG(weight  ORDER BY abs(weight) DESC) AS weights
            FROM has_child_features f
               , dd_inference_result_variables_mapped_weights wm
-          WHERE wm.description = ('parentFactor-' || f.feature)
+          WHERE wm.description = ('childFactor-' || f.feature)
           GROUP BY relation_id
         ) f
   WHERE s.sentence_id  = hci.sentence_id
