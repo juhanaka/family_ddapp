@@ -31,6 +31,8 @@ if ! [ -z "$relationship" ]
 
 		psql -d $DBNAME -c "SELECT count(*) FROM permanent_tags_family_${relationship}_precision_is_correct WHERE is_correct='true';" -t >> results.tsv
 
+		psql -d $DBNAME -c "SELECT count(*) FROM permanent_tags_family_${relationship}_precision_is_correct WHERE is_correct!='';" -t >> results.tsv
+
 		./calculus.py $relationship
 
 	else
@@ -59,6 +61,8 @@ if ! [ -z "$relationship" ]
 			done
 
 			psql -d $DBNAME -c "SELECT count(*) FROM permanent_tags_family_${relat}_precision_is_correct WHERE is_correct='true';" -t >> results.tsv
+
+			psql -d $DBNAME -c "SELECT count(*) FROM permanent_tags_family_${relat}_precision_is_correct WHERE is_correct!='';" -t >> results.tsv
 
 			./calculus.py $relat
 		done

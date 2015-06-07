@@ -157,58 +157,57 @@ fi
 #The expectations of all the relations are computed thanks to the results of the last run of deepdive
 #The table is exported and can then be synced with other people (through git for instance)
 
-# psql -d $DBNAME -c \
-# """
-# UPDATE permanent_tags_family_parent_precision_is_correct
-# SET expectation = 
-# (SELECT f.expectation
-# FROM has_parent_is_true_inference f
-# WHERE permanent_tags_family_parent_precision_is_correct.sentence_id= f.sentence_id
-# AND   permanent_tags_family_parent_precision_is_correct.description = f.description
-# LIMIT 1);
-# """
+psql -d $DBNAME -c \
+"""
+UPDATE permanent_tags_family_parent_precision_is_correct
+SET expectation = 
+(SELECT f.expectation
+FROM has_parent_is_true_inference f
+WHERE permanent_tags_family_parent_precision_is_correct.sentence_id= f.sentence_id
+AND   permanent_tags_family_parent_precision_is_correct.description = f.description
+LIMIT 1);
+"""
 pg_dump $DBNAME -t permanent_tags_family_parent_precision_is_correct > permanent_tags_family_parent_precision_is_correct.sql
 
 
-# psql -d $DBNAME -c \
-# """
-# UPDATE permanent_tags_family_child_precision_is_correct
-# SET expectation = 
-# (SELECT f.expectation
-# FROM has_child_is_true_inference f
-# WHERE permanent_tags_family_child_precision_is_correct.sentence_id= f.sentence_id
-# AND   permanent_tags_family_child_precision_is_correct.description = f.description
-# LIMIT 1);
-# """
+psql -d $DBNAME -c \
+"""
+UPDATE permanent_tags_family_child_precision_is_correct
+SET expectation = 
+(SELECT f.expectation
+FROM has_child_is_true_inference f
+WHERE permanent_tags_family_child_precision_is_correct.sentence_id= f.sentence_id
+AND   permanent_tags_family_child_precision_is_correct.description = f.description
+LIMIT 1);
+"""
 pg_dump $DBNAME -t permanent_tags_family_child_precision_is_correct > permanent_tags_family_child_precision_is_correct.sql
 
 
-# psql -d $DBNAME -c \
-# """
-# UPDATE permanent_tags_family_spouse_precision_is_correct
-# SET expectation = 
-# (SELECT f.expectation
-# FROM has_spouse_is_true_inference f
-# WHERE permanent_tags_family_spouse_precision_is_correct.sentence_id= f.sentence_id
-# AND   permanent_tags_family_spouse_precision_is_correct.description = f.description
-# LIMIT 1);
-# """
+psql -d $DBNAME -c \
+"""
+UPDATE permanent_tags_family_spouse_precision_is_correct
+SET expectation = 
+(SELECT f.expectation
+FROM has_spouse_is_true_inference f
+WHERE permanent_tags_family_spouse_precision_is_correct.sentence_id= f.sentence_id
+AND   permanent_tags_family_spouse_precision_is_correct.description = f.description
+LIMIT 1);
+"""
 pg_dump $DBNAME -t permanent_tags_family_spouse_precision_is_correct > permanent_tags_family_spouse_precision_is_correct.sql
 
 
-# psql -d $DBNAME -c \
-# """
-# UPDATE permanent_tags_family_sibling_precision_is_correct
-# SET expectation = 
-# (SELECT f.expectation
-# FROM has_sibling_is_true_inference f
-# WHERE permanent_tags_family_sibling_precision_is_correct.sentence_id= f.sentence_id
-# AND   permanent_tags_family_sibling_precision_is_correct.description = f.description
-# LIMIT 1);
-# """
+psql -d $DBNAME -c \
+"""
+UPDATE permanent_tags_family_sibling_precision_is_correct
+SET expectation = 
+(SELECT f.expectation
+FROM has_sibling_is_true_inference f
+WHERE permanent_tags_family_sibling_precision_is_correct.sentence_id= f.sentence_id
+AND   permanent_tags_family_sibling_precision_is_correct.description = f.description
+LIMIT 1);
+"""
 pg_dump $DBNAME -t permanent_tags_family_sibling_precision_is_correct > permanent_tags_family_sibling_precision_is_correct.sql
 
 
-
 #Interesting graphs are generated
-# ./create_graphs.sh $relationship
+#./create_graphs.sh $relationship
