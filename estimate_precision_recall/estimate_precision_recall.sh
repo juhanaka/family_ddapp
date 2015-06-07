@@ -74,7 +74,7 @@ if ! [ -z "$relationship" ]
   #Add the tags from the tags.sql file from mindtag to the permanent table in the case of a precision analysis
   if [ "${file_name#*$word_precision}" != "$file_name" ]
     then
-      perl -pi -e 's/tags_${relationship}-precision_is_correct/tags_${relationship}_precision_is_correct/' $file_name
+      perl -pi -e 's/tags_has_${relationship}-precision_is_correct/tags_has_${relationship}_precision_is_correct/' $file_name
 
       psql $DBNAME < $file_name
 
@@ -93,9 +93,9 @@ if ! [ -z "$relationship" ]
       """
       DELETE FROM permanent_tags_family_${relationship}_precision_is_correct
       where sentence_id IN 
-      (SELECT tags_${relationship}_precision_is_correct.sentence_id FROM tags_${relationship}_precision_is_correct 
-      where permanent_tags_family_${relationship}_precision_is_correct.description = tags_${relationship}_precision_is_correct.description
-      and tags_${relationship}_precision_is_correct.is_correct != '');
+      (SELECT tags_has_${relationship}_precision_is_correct.sentence_id FROM tags_has_${relationship}_precision_is_correct 
+      where permanent_tags_family_${relationship}_precision_is_correct.description = tags_has_${relationship}_precision_is_correct.description
+      and tags_has_${relationship}_precision_is_correct.is_correct != '');
       """
 
       psql -d $DBNAME -c \
@@ -105,8 +105,8 @@ if ! [ -z "$relationship" ]
              t.sentence_id, 
              t.is_correct,
              t.description
-      FROM tags_${relationship}_precision_is_correct t
-      and t.is_correct != '';
+      FROM tags_has_${relationship}_precision_is_correct t
+      WHERE t.is_correct != '';
       """
   fi
 
@@ -115,7 +115,7 @@ if ! [ -z "$relationship" ]
 
   if [ "${file_name#*$word_recall}" != "$file_name" ]
     then
-      perl -pi -e 's/tags_${relationship}-recall_is_correct/tags_${relationship}_recall_is_correct/' $file_name
+      perl -pi -e 's/tags_has_${relationship}-recall_is_correct/tags_has_${relationship}_recall_is_correct/' $file_name
 
       psql $DBNAME < $file_name
 
@@ -134,9 +134,9 @@ if ! [ -z "$relationship" ]
       """
       DELETE FROM permanent_tags_family_${relationship}_precision_is_correct
       where sentence_id IN 
-      (SELECT tags_${relationship}_recall_is_correct.sentence_id FROM tags_${relationship}_recall_is_correct 
-      where permanent_tags_family_${relationship}_precision_is_correct.description = tags_${relationship}_recall_is_correct.description
-      and tags_${relationship}_recall_is_correct.is_correct != '');
+      (SELECT tags_has_${relationship}_recall_is_correct.sentence_id FROM tags_has_${relationship}_recall_is_correct 
+      where permanent_tags_family_${relationship}_precision_is_correct.description = tags_has_${relationship}_recall_is_correct.description
+      and tags_has_${relationship}_recall_is_correct.is_correct != '');
       """
 
       psql -d $DBNAME -c \
@@ -146,7 +146,7 @@ if ! [ -z "$relationship" ]
              t.sentence_id, 
              'true',
              t.description
-      FROM tags_${relationship}_recall_is_correct t
+      FROM tags_has_${relationship}_recall_is_correct t
       WHERE t.is_correct != '';
       """
   fi
