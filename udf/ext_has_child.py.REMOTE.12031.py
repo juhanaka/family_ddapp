@@ -28,8 +28,8 @@ for line in lines:
         continue
     nameParent, nameKid, relation = arr
     if relation=="1":
-        parent_kid_relationship.add((nameParent, nameKid))
-        people_already_seen_as_kid.add(nameKid)
+        parent_kid_relationship.add((nameParent, nameKid)) 
+        people_already_seen_as_kid.add(nameKid)   
         people_already_seen_as_parent.add(nameParent)
     else:
         non_parent_kid_relationship.add((nameParent, nameKid))
@@ -60,7 +60,7 @@ for row in sys.stdin:
     elif (subject_text == kid_text) or (subject_text in kid_text) or (kid_text in subject_text):
         is_true = '0'
 
-
+    # Output relation candidates into output table
     print '\t'.join([
         subject_id, kid_id, sentence_id,
         "%s-%s" %(subject_text, kid_text),

@@ -1,7 +1,7 @@
 deepdive {
 
   # Regularization
-  sampler.sampler_args: "-l 700 -s 1 -i 500 --alpha 0.1 --diminish 0.99 -b 10"
+  sampler.sampler_args: "-l 700 -s 1 -i 500 --alpha 0.1 --diminish 0.99 --reg_param 10"
 
   db.default {
     driver   : "org.postgresql.Driver"
@@ -36,23 +36,35 @@ deepdive {
     "ext_has_child_candidates","ext_filter_negative_examples"
   ]
 
+  pipeline.pipelines.all_except_preprocess: [
+    "ext_clear_table_all_except_preprocess", "ext_people", "ext_has_parent_candidates", "ext_has_spouse_candidates", "ext_has_child_candidates"
+    "ext_has_sibling_candidates", "ext_filter_negative_examples", "ext_has_spouse_features", "ext_has_parent_features", "ext_has_sibling_features", "ext_has_child_features",
+    "spouseFactor", "parentFactor", "siblingFactor", "childFactor",
+    "siblingImpliesNotSpouseFactor",
+    "siblingImpliesNotParentFactor", "parentImpliesNotSpouseFactor",
+    "spouseImpliesNotSiblingFactor", "spouseImpliesNotParentFactor",
+    "parentImpliesNotSiblingFactor", "sameChildImpliesSpouseFactor",
+    "sameParentImpliesSiblingFactor", "parentImpliesChildFactor"
+  ]
+
   pipeline.pipelines.features_and_inference: [
     #"ext_has_sibling_features", "ext_has_spouse_features",
-    #"ext_has_child_features",
-    "ext_has_parent_features",
+    "ext_has_child_features","ext_has_parent_features",
     "spouseFactor", "parentFactor", "childFactor", "siblingFactor",
-    "MutuallyExclusiveSiblingSpouse",
-    "MutuallyExclusiveSiblingParent", "MutuallyExclusiveParentSpouse",
-    "MutuallyExclusiveChildParent", "MutuallyExclusiveChildSibling",
-    "MutuallyExclusiveChildSpouse"
+    "siblingImpliesNotSpouseFactor",
+    "siblingImpliesNotParentFactor", "parentImpliesNotSpouseFactor",
+    "spouseImpliesNotSiblingFactor", "spouseImpliesNotParentFactor",
+    "parentImpliesNotSiblingFactor", "sameChildImpliesSpouseFactor",
+    "sameParentImpliesSiblingFactor", "parentImpliesChildFactor"
   ]
 
   pipeline.pipelines.learning_and_inference: [
     "spouseFactor", "parentFactor", "childFactor", "siblingFactor",
-    "MutuallyExclusiveSiblingSpouse",
-    "MutuallyExclusiveSiblingParent", "MutuallyExclusiveParentSpouse",
-    "MutuallyExclusiveChildParent", "MutuallyExclusiveChildSibling",
-    "MutuallyExclusiveChildSpouse"
+    "siblingImpliesNotSpouseFactor",
+    "siblingImpliesNotParentFactor", "parentImpliesNotSpouseFactor",
+    "spouseImpliesNotSiblingFactor", "spouseImpliesNotParentFactor",
+    "parentImpliesNotSiblingFactor", "sameChildImpliesSpouseFactor",
+    "sameParentImpliesSiblingFactor", "parentImpliesChildFactor"
   ]
 
 
@@ -60,14 +72,17 @@ deepdive {
   pipeline.pipelines.filter_nulls: ["ext_filter_null_examples"]
 
   #Choosing the pipeline to run
-  pipeline.run: "learning_and_inference"
+<<<<<<< HEAD
+  pipeline.run: "features_and_inference"
+=======
+  pipeline.run: "people_and_candidates"
+>>>>>>> 38b710ed0b160b8bdaf80bdb2a2c46138f7e4aa6
 
     # Put your variables here
   schema.variables {
    has_parent.is_true: Boolean
    has_spouse.is_true: Boolean
    has_sibling.is_true: Boolean
-   has_child.is_true: Boolean
   }
 
   # Put your extractors here
@@ -505,7 +520,7 @@ deepdive {
       function : "IsTrue(has_sibling.is_true)"
       weight : "?(feature)"
     }
-    MutuallyExclusiveSiblingSpouse {
+    siblingImpliesNotSpouseFactor {
       input_query: """
         SELECT  has_sibling.id AS "has_sibling.id",
                 has_spouse.id AS "has_spouse.id",
@@ -516,10 +531,24 @@ deepdive {
         WHERE has_sibling.person1_id = has_spouse.person1_id AND
               has_sibling.person2_id = has_spouse.person2_id
       """
-      function: "Or(!has_sibling.is_true, !has_spouse.is_true)"
-      weight: 5
+      function: "Imply(has_sibling.is_true, !has_spouse.is_true)"
+      weight: -5
     }
-    MutuallyExclusiveParentSpouse {
+    spouseImpliesNotSiblingFactor {
+      input_query: """
+        SELECT  has_sibling.id AS "has_sibling.id",
+                has_spouse.id AS "has_spouse.id",
+                has_sibling.is_true AS "has_sibling.is_true",
+                has_spouse.is_true AS "has_spouse.is_true"
+        FROM has_sibling,
+             has_spouse
+        WHERE has_sibling.person1_id = has_spouse.person1_id AND
+              has_sibling.person2_id = has_spouse.person2_id
+      """
+      function: "Imply(has_spouse.is_true, !has_sibling.is_true)"
+      weight: -5
+    }
+    parentImpliesNotSpouseFactor {
       input_query: """
         SELECT  has_parent.id AS "has_parent.id",
                 has_spouse.id AS "has_spouse.id",
@@ -530,10 +559,25 @@ deepdive {
         WHERE has_parent.child_id = has_spouse.person1_id AND
               has_parent.parent_id = has_spouse.person2_id
       """
-      function: "Or(!has_parent.is_true, !has_spouse.is_true)"
-      weight: 5
+      function: "Imply(has_parent.is_true, !has_spouse.is_true)"
+      weight: -5
     }
-    MutuallyExclusiveSiblingParent {
+    spouseImpliesNotParentFactor {
+      input_query: """
+        SELECT  has_parent.id AS "has_parent.id",
+                has_spouse.id AS "has_spouse.id",
+                has_parent.is_true AS "has_parent.is_true",
+                has_spouse.is_true AS "has_spouse.is_true"
+        FROM has_parent,
+             has_spouse
+        WHERE has_parent.child_id = has_spouse.person1_id AND
+              has_parent.parent_id = has_spouse.person2_id
+      """
+      function: "Imply(has_spouse.is_true, !has_parent.is_true)"
+      weight: -5
+    }
+
+    siblingImpliesNotParentFactor {
       input_query: """
         SELECT  has_parent.id AS "has_parent.id",
                 has_sibling.id AS "has_sibling.id",
@@ -544,10 +588,24 @@ deepdive {
         WHERE has_parent.child_id = has_sibling.person1_id AND
               has_parent.parent_id = has_sibling.person2_id
       """
-      function: "Or(!has_sibling.is_true, !has_parent.is_true)"
-      weight: 5
+      function: "Imply(has_sibling.is_true, !has_parent.is_true)"
+      weight: -5
     }
-    MutuallyExclusiveChildParent {
+    parentImpliesNotSiblingFactor {
+      input_query: """
+        SELECT  has_parent.id AS "has_parent.id",
+                has_sibling.id AS "has_sibling.id",
+                has_parent.is_true AS "has_parent.is_true",
+                has_sibling.is_true AS "has_sibling.is_true"
+        FROM has_parent,
+             has_sibling
+        WHERE has_parent.child_id = has_sibling.person1_id AND
+              has_parent.parent_id = has_sibling.person2_id
+      """
+      function: "Imply(has_parent.is_true, !has_sibling.is_true)"
+      weight: -5
+    }
+    parentImpliesChildFactor {
       input_query: """
         SELECT  has_parent.id AS "has_parent.id",
                 has_child.id AS "has_child.id",
@@ -555,38 +613,47 @@ deepdive {
                 has_child.is_true AS "has_child.is_true"
         FROM has_parent,
              has_child
-        WHERE has_parent.child_id = has_child.parent_id AND
-              has_parent.parent_id = has_child.child_id
+        WHERE has_parent.child_id = has_child.child_id AND
+              has_parent.parent_id = has_child.parent_id
       """
-      function: "Or(!has_child.is_true, !has_parent.is_true)"
+      function: "Imply(has_parent.is_true, has_child.is_true)"
       weight: 5
     }
-    MutuallyExclusiveChildSibling {
+    sameChildImpliesSpouseFactor {
       input_query: """
-        SELECT  has_sibling.id AS "has_sibling.id",
-                has_child.id AS "has_child.id",
-                has_sibling.is_true AS "has_sibling.is_true",
-                has_child.is_true AS "has_child.is_true"
-        FROM has_sibling,
-             has_child
-        WHERE has_child.child_id = has_sibling.person1_id AND
-              has_child.parent_id = has_sibling.person2_id
+        SELECT  hp1.id AS "has_parent1.id",
+                hp2.id AS "has_parent2.id",
+                has_spouse.id AS "has_spouse.id",
+                hp1.is_true AS "has_parent1.is_true",
+                hp2.is_true AS "has_parent2.is_true",
+                has_spouse.is_true AS "has_spouse.is_true"
+        FROM has_parent hp1,
+             has_parent hp2,
+             has_spouse
+        WHERE hp1.child_id = hp2.child_id AND
+              hp1.parent_id = has_spouse.person1_id AND
+              hp2.parent_id = has_spouse.person2_id
       """
-      function: "Or(!has_child.is_true, !has_sibling.is_true)"
+      function: "Imply(has_parent1.is_true, has_parent2.is_true, has_spouse.is_true)"
       weight: 5
     }
-    MutuallyExclusiveChildSpouse {
+
+    sameParentImpliesSiblingFactor {
       input_query: """
-        SELECT  has_spouse.id AS "has_spouse.id",
-                has_child.id AS "has_child.id",
-                has_spouse.is_true AS "has_spouse.is_true",
-                has_child.is_true AS "has_child.is_true"
-        FROM has_spouse,
-             has_child
-        WHERE has_child.child_id = has_spouse.person1_id AND
-              has_child.parent_id = has_spouse.person2_id
+        SELECT  hp1.id AS "has_parent1.id",
+                hp2.id AS "has_parent2.id",
+                has_sibling.id AS "has_sibling.id",
+                hp1.is_true AS "has_parent1.is_true",
+                hp2.is_true AS "has_parent2.is_true",
+                has_sibling.is_true AS "has_sibling.is_true"
+        FROM has_parent hp1,
+             has_parent hp2,
+             has_sibling
+        WHERE hp1.parent_id = hp2.parent_id AND
+              hp1.child_id = has_sibling.person1_id AND
+              hp2.child_id = has_sibling.person2_id
       """
-      function: "Or(!has_child.is_true, !has_spouse.is_true)"
+      function: "Imply(has_parent1.is_true, has_parent2.is_true, has_sibling.is_true)"
       weight: 5
     }
   }
