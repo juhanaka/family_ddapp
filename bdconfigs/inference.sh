@@ -111,3 +111,41 @@ COPY (
   ORDER BY random() LIMIT 100
 ) TO STDOUT WITH CSV HEADER;
 " > inference/has_parent.csv
+
+psql $DBNAME -c "
+COPY (
+ SELECT hci.relation_id
+      , s.sentence_id
+      , description
+      , is_true
+      , expectation
+      , s.words
+      , c.start_position AS c_start
+      , c.length AS c_length
+      , p.start_position AS p_start
+      , p.length AS p_length
+      , p.length AS p_length
+      -- also include all relevant features with weights
+      , features[1:6] -- top 6 features with weights
+      , weights[1:6]
+   FROM has_child_is_true_inference hci
+      , sentences_filtered s
+      , people_mentions c
+      , people_mentions p
+      , ( -- find features relevant TO the relation
+         SELECT relation_id
+              , ARRAY_AGG(feature ORDER BY abs(weight) DESC) AS features
+              , ARRAY_AGG(weight  ORDER BY abs(weight) DESC) AS weights
+           FROM has_child_features f
+              , dd_inference_result_variables_mapped_weights wm
+          WHERE wm.description = ('childFactor-' || f.feature)
+          GROUP BY relation_id
+        ) f
+  WHERE s.sentence_id  = hci.sentence_id
+    AND c.mention_id  = hci.child_id
+    AND p.mention_id  = hci.parent_id
+    AND f.relation_id  = hci.relation_id
+    AND expectation    > 0.9
+  ORDER BY random() LIMIT 100
+) TO STDOUT WITH CSV HEADER;
+" > inference/has_child.csv
