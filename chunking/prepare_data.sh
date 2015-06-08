@@ -23,7 +23,7 @@ psql -c """create table chunking_candidates(
 
 psql $DBNAME -c "drop table if exists chunking_candidates_final"
 
-psql -c """create table chunking_candidates(
+psql -c """create table chunking_candidates_final(
   pronoun_id text,
   person_id text,
   start_position int,
