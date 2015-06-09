@@ -22,6 +22,7 @@ for row in sys.stdin:
     phrases = []
     is_true='\N'
     potential_true_training_set = True
+    interesting_case = False
 
     words_not_true_training_data = ["he", "she", "his", "her", "they"]
 
@@ -39,13 +40,16 @@ for row in sys.stdin:
         if s_sent_ner_tags[index] == "PERSON":
             if s_sent_words[index] in p_text:
                 potential_true_training_set = False
+            else:
+                interesting_case=True
 
     #Distance rule: if there is more than one pronoun in this sentence, this candidate is not a positive training example
     if first_pronoun != 1:
         potential_true_training_set = False
 
     if potential_true_training_set==True:
-        is_true='1'
+        if interesting_case:
+            is_true='1'
 
     for index in phrases:
         print '\t'.join(
