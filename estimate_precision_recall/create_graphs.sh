@@ -65,5 +65,6 @@ if ! [ -z "$relationship" ]
 			psql -d $DBNAME -c "SELECT count(*) FROM permanent_tags_family_${relat}_precision_is_correct WHERE is_correct!='';" -t >> results.tsv
 
 			./calculus.py $relat
+			rm results.tsv
 		done
 fi

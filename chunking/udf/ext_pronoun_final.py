@@ -3,17 +3,27 @@
 # extract training data
 import sys
 
+import psycopg2
+
+try:
+    conn = psycopg2.connect("dbname='deepdive_family'")
+except:
+    print "unable to connect to the database"
+
+cur = conn.cursor()
+
+ARR_DELIM = '~^~'
+
 # for each word
 for row in sys.stdin:
 	parts = row.strip().split('\t')
-	doc_id, s_words, s_sent_offset, s_sentence_id, p_sentence_id, p_start_position, p_length, p_text, p_mention_id = parts
+	pronoun_id,  person_id,  start_position, pronoun_text, sentence_id, sentence_offset, person_description, is_true, document_id, bigid = parts
 	
-	if s_words[0].lower() != "he" or s_words[0].lower() != "she":
-		continue
+    start_position = int(start_position)
+    sentence_offset = int(sentence_offset)
 
-	is_true = '\N'
 
-	#Training set ? Supervision Rule ?
+
 
 	print '\t'.join(
       [ str(x) for x in [

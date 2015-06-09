@@ -16,10 +16,7 @@ with open('results.tsv') as f:
 
     true_expect = arr[0:length]
     false_expect = arr[length:(2*length)]
-    nb_predicted = arr[(2*length):(3*length)]
-    nb_recall = arr[(3*length):(4*length)]
-    nb_recall_tot = arr[4*length]
-    nb_sentences_tagged_tot = arr[4*length +1]
+    nb_sentences_tagged_tot = arr[2*length]
 
     #false_positive_rate = [false_expect[x]/(nb_sentences_tagged_tot - nb_recall_tot) for x in range(length)]
     precision = [true_expect[x]/(true_expect[x] + false_expect[x]) for x in range(length)]
@@ -45,4 +42,4 @@ with open('results.tsv') as f:
 
     #plt.show()
 
-    print "precision of " + relation + ": " + str(precision[6])
+    print "precision of " + relation + ": " + str(precision[6]) + " out of " + str(nb_sentences_tagged_tot) + " sentences tagged"
