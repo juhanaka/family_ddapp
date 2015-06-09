@@ -1,10 +1,16 @@
-# Database Configuration
+# Database Configuration for local
 export DBNAME=deepdive_family
-
 export PGUSER=${PGUSER:-`whoami`}
 export PGPASSWORD=${PGPASSWORD:-}
 export PGPORT=${PGPORT:-5432}
 export PGHOST=${PGHOST:-localhost}
+
+# Database Configuration for local
+#export DBNAME=cs341_15
+#export PGUSER=${PGUSER:-yahres}
+#export PGPASSWORD=${PGPASSWORD:-}
+#export PGPORT=${PGPORT:-6432}
+#export PGHOST=${PGHOST:-raiders5.stanford.edu}
 
 TASK_DIR="./spouse-recall"
 psql $DBNAME -c "

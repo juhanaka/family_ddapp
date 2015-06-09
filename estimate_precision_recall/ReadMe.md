@@ -6,7 +6,5 @@
 	- add the tags description, sentences_id, relation_id and is_correct
 	- choose the format insert.sql
 	- put the table name: tags_$relation_precision_is_correct
-		(not needed if you don't have any other tags)
-	- rename the file tags.sql for precision or tags_recall.sql for recall and put it in this folder
-	- run estimate_precision_$relation.sh
+	- run estimate_precision_recall.sh with file as argument
 	- push to git

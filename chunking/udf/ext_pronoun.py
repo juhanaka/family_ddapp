@@ -23,7 +23,7 @@ for row in sys.stdin:
     is_true='\N'
     potential_true_training_set = True
 
-    words_not_true_training_data = ["he", "she", "his", "her"]
+    words_not_true_training_data = ["he", "she", "his", "her", "they"]
 
     for i in range (0, len(s_people_ner_tags)):
         if i < p_start_position or i >= (p_start_position + p_length):
@@ -37,7 +37,8 @@ for row in sys.stdin:
             phrases.append(index)
         #Distance rule: If the sentence with our pronoun contains another person mentioned, this candidate is not a positive training example
         if s_sent_ner_tags[index] == "PERSON":
-            potential_true_training_set = False
+            if s_sent_words[index] in p_text:
+                potential_true_training_set = False
 
     #Distance rule: if there is more than one pronoun in this sentence, this candidate is not a positive training example
     if first_pronoun != 1:
