@@ -9,6 +9,19 @@ ARR_DELIM = '~^~'
 PEOPLE_BETWEEN_BUCKETS = [(0,1),(1,2),(2,10000)]
 NUM_WORDS_BETWEEN_BUCKETS = [(0,5),(5,10),(10,20),(20,10000)]
 
+family_dict = ['son', 'sons',
+               'daughter', 'daughters',
+               'father', 'fathers',
+               'mother', 'mothers',
+               'parent', 'parents',
+               'marry', 'married',
+               'husband', 'wife',
+               'brother','sister',
+               'grandfather','grandmother',
+               'born', 'sibling',
+               'cousin', 'cousins',
+               'aunt', 'uncle']
+
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 stop_words_fp = open(BASE_DIR + '/../udf/dicts/stop_words.txt')
 stop_words = set()
@@ -73,13 +86,10 @@ for row in sys.stdin:
     for feature in ddlib.get_generic_features_relation(sentence, span1, span2):
         parts = feature[feature.find('[')+1: feature.rfind(']')].split(' ')
         if 'BETW' in feature:
-            if 'poss' in parts:
-                for word in words_between.elements[::-1]:
-                    if not word in punctuation:
-                        features.add(feature+word)
-                        break
-            else:
-                features.add(feature)
+            for word in words_between.elements[::-1]:
+                if word in family_dict:
+                    features.add(feature+word)
+                    break
         if 'BETW' in feature and all([part == 'nn' for part in parts]):
             features.add('no_dependency')
         if feature.startswith('BETW_[') and len(parts) > 5:
