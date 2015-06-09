@@ -10,7 +10,7 @@ do
   (SELECT f.expectation
   FROM has_${relat}_is_true_inference f
   WHERE permanent_tags_family_${relat}_precision_is_correct.sentence_id= f.sentence_id
-  AND   permanent_tags_family_${relat}_precision_is_correct.description = f.description
+  AND   permanent_tags_family_${relat}_precision_is_correct.relation_id = f.relation_id
   LIMIT 1);
   """
 done

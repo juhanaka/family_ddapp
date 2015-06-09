@@ -158,9 +158,7 @@ COPY permanent_tags_family_sibling_precision_is_correct (relation_id, sentence_i
 14595095@2_0-14595095@2_9	14595095@2	true	Luciano Civelli-Renato Civelli	0.997999999999999998
 6813264@37_3-6813264@37_14	6813264@37	true	Wilson Palacios-Edwin Palacios	\N
 341814@21_0-341814@21_30	341814@21	true	Mariano Rivera-Delia	0.138000000000000012
-29443469@6_10-29443469@6_15	29443469@6	true	Cal Alley-James	0.892000000000000015
 30363244@6_0-30363244@6_25	30363244@6	true	Mohamed M'Changama-Youssouf	0.914000000000000035
-61645@9_3-61645@9_7	61645@9	true	Theodosius II-Pulcheria	0.967999999999999972
 12020723@5_0-12020723@5_21	12020723@5	true	Sitdjehuti-Ahmose Inhapy	\N
 3237982@29_9-3237982@29_39	3237982@29	false	Whitney Blake-George Baxter	0.170000000000000012
 334164@12_0-334164@12_15	334164@12	true	William Barton Rogers-Henry Darwin Rogers	\N
@@ -187,7 +185,6 @@ COPY permanent_tags_family_sibling_precision_is_correct (relation_id, sentence_i
 3294268@4_1-3294268@4_8	3294268@4	true	Princess Margaretha of Liechtenstein-Jean	0.937999999999999945
 3100416@3_0-3100416@3_15	3100416@3	true	Rosalie Loveling-Virginie Loveling	0.97799999999999998
 23065174@20_11-23065174@20_32	23065174@20	true	Shama Sikander-Rizwan Sikander	\N
-23943446@25_0-23943446@25_22	23943446@25	true	David Reimer-Brian Reimer	\N
 1332165@16_0-1332165@16_7	1332165@16	true	Gavin Christopher-Shawn Christopher	0.876000000000000001
 5603850@9_3-5603850@9_14	5603850@9	false	Empress Feng Run-Feng Xi	0.654000000000000026
 3555882@22_3-3555882@22_18	3555882@22	false	Everett M. "Busy" Arnold-John Cowles	0.725999999999999979
@@ -243,7 +240,6 @@ COPY permanent_tags_family_sibling_precision_is_correct (relation_id, sentence_i
 37640251@28_3-37640251@28_10	37640251@28	true	Carissa Phelps-Jacob	0.945999999999999952
 843174@22_0-843174@22_8	843174@22	true	Angela Hitler-Geli	0.752000000000000002
 30980571@7_6-30980571@7_15	30980571@7	true	Truman Lowe-Irene	0.815999999999999948
-325590@10_0-325590@10_5	325590@10	true	Dan Flavin-David	0.951999999999999957
 20888503@4_0-20888503@4_4	20888503@4	true	Charles Bunning-Joe	0.902000000000000024
 5079930@7_0-5079930@7_5	5079930@7	true	Margaret Bryan-Anne Bourchier	0.912000000000000033
 97593@7_0-97593@7_4	97593@7	true	Sidney Bechet-Leonard Victor Bechet	0.953999999999999959
@@ -291,7 +287,6 @@ COPY permanent_tags_family_sibling_precision_is_correct (relation_id, sentence_i
 1352760@8_0-1352760@8_4	1352760@8	true	Dave "Snaker" Ray-Max	0.928000000000000047
 19393021@20_0-19393021@20_5	19393021@20	true	George Brickley-Charles Brickley	0.985999999999999988
 32367236@5_14-32367236@5_19	32367236@5	true	Severinus of Saxony-Maurice	0.987999999999999989
-37266823@48_0-37266823@48_4	37266823@48	true	Jillian Ellis-Paul Ellis	0.910000000000000031
 6927637@2_0-6927637@2_14	6927637@2	true	Duane Glinton-Gavin Glinton	0.991999999999999993
 6513355@9_0-6513355@9_3	6513355@9	true	Sir John Agnew, 6th Baronet-George Anthony Agnew	0.941999999999999948
 23987388@13_6-23987388@13_13	23987388@13	true	Fränk Schleck-Andy	0.955999999999999961
@@ -338,6 +333,7 @@ COPY permanent_tags_family_sibling_precision_is_correct (relation_id, sentence_i
 43738132@9_3-43738132@9_9	43738132@9	true	Jeff Galvin-Chris	0.914000000000000035
 597057@45_0-597057@45_8	597057@45	true	Meldrick Taylor-Myron Taylor	0.932000000000000051
 50745@68_31-50745@68_34	50745@68	true	Paul Simon-Ed	0.910000000000000031
+11115873@20_0-11115873@20_4	11115873@20	true	Robert Eakin-James	0.959999999999999964
 3373624@1_3-3373624@1_28	3373624@1	true	Ashraf Pahlavi-Mohammad Reza Pahlavi	0.873999999999999999
 12380922@8_0-12380922@8_6	12380922@8	true	Scott Pilarz-Susan	0.947999999999999954
 3310832@11_0-3310832@11_6	3310832@11	true	Paul I Šubić of Bribir-Mladen	0.957999999999999963
@@ -345,7 +341,6 @@ COPY permanent_tags_family_sibling_precision_is_correct (relation_id, sentence_i
 31309829@42_0-31309829@42_6	31309829@42	true	Charles A. Spring, Jr.-Winthrop N. Spring	0.951999999999999957
 28690381@3_0-28690381@3_6	28690381@3	true	Ioan Lahovary-Alexandru Lahovary	0.979999999999999982
 14273894@7_0-14273894@7_6	14273894@7	true	Joe Berinson-Goola	0.961999999999999966
-1810117@29_0-1810117@29_7	1810117@29	true	Leland Chapman-Duane Lee	0.896000000000000019
 1003581@13_7-1003581@13_13	1003581@13	true	Worth Bagley-David W. Bagley	0.853999999999999981
 40448569@10_0-40448569@10_4	40448569@10	true	Fred L. Lowery-John Daniel Lowery	0.928000000000000047
 43179507@3_5-43179507@3_20	43179507@3	true	Andrew Bayly-Paul	0.892000000000000015
@@ -415,7 +410,6 @@ COPY permanent_tags_family_sibling_precision_is_correct (relation_id, sentence_i
 39926914@4_6-39926914@4_10	39926914@4	true	Rick Soderman-Randy	0.922000000000000042
 3273231@7_0-3273231@7_15	3273231@7	true	Stanley Huang-Jeffrey	0.945999999999999952
 408719@8_0-408719@8_3	408719@8	true	Bill Todman-Howard	0.934000000000000052
-11115873@20_0-11115873@20_4	11115873@20	true	Robert Eakin-James	0.959999999999999964
 3017332@13_0-3017332@13_3	3017332@13	true	James Dick-John	0.930000000000000049
 5990597@4_0-5990597@4_6	5990597@4	true	Nicole Garza-Natalie	0.941999999999999948
 43222631@11_5-43222631@11_9	43222631@11	true	Uladzimir Levaneuski-Dmitry	0.928000000000000047
@@ -452,14 +446,12 @@ COPY permanent_tags_family_sibling_precision_is_correct (relation_id, sentence_i
 912593@25_5-912593@25_10	912593@25	true	Princess Mary, Duchess of Gloucester and Edinburgh-Prince Regent	0.902000000000000024
 2020809@49_0-2020809@49_3	2020809@49	true	Joe Baker-Gerry	0.910000000000000031
 2003098@28_1-2003098@28_5	2003098@28	true	Adam Kubert-Andy	0.957999999999999963
-31600349@7_1-31600349@7_10	31600349@7	true	Philip Percival-Blaney	0.918000000000000038
 37469661@77_0-37469661@77_4	37469661@77	true	John Anthony Walker-Arthur	0.955999999999999961
 27443638@3_0-27443638@3_6	27443638@3	true	Lane Nakano-Lyle	0.953999999999999959
 1190148@2_0-1190148@2_4	1190148@2	true	Esham-James Smith	0.939999999999999947
 225698@8_0-225698@8_5	225698@8	true	Henrik Wergeland-Camilla Collett	0.959999999999999964
 2313785@5_0-2313785@5_5	2313785@5	true	Philip Amelio-Lindsey Cook Amelio	0.96599999999999997
 24323188@12_8-24323188@12_13	24323188@12	true	Jukka Rusi-Alpo Rusi	0.934000000000000052
-199933@17_0-199933@17_5	199933@17	true	Eric Cantona-Jean-Marie	0.959999999999999964
 375066@74_5-375066@74_8	375066@74	true	Edwin M. Stanton-Darwin	0.902000000000000024
 26144589@6_4-26144589@6_9	26144589@6	true	Elizabeth Philpot-Mary	0.916000000000000036
 14472753@5_0-14472753@5_4	14472753@5	true	Jack Bancroft-Billy	0.953999999999999959
@@ -484,6 +476,206 @@ COPY permanent_tags_family_sibling_precision_is_correct (relation_id, sentence_i
 19317201@13_0-19317201@13_6	19317201@13	true	Freida Pinto-Sharon	0.939999999999999947
 590216@6_0-590216@6_5	590216@6	true	Ludwig Achim von Arnim-Carl Otto	0.969999999999999973
 36134438@8_2-36134438@8_8	36134438@8	true	Hemant Kanoria-Sunil Kanoria	0.949999999999999956
+9415306@13_8-9415306@13_13	9415306@13	true	Hereswith-Hild	\N
+33529016@3_1-33529016@3_26	33529016@3	true	Şakir Eczacıbaşı-Nejat	\N
+20235920@14_3-20235920@14_10	20235920@14	true	Lucius Curtis-Roger	\N
+3044214@4_0-3044214@4_4	3044214@4	true	Pierre Sinibaldi-Paul	\N
+32885278@4_3-32885278@4_17	32885278@4	true	Francis Charles of Saxe-Lauenburg-Augustus	\N
+6505881@51_0-6505881@51_3	6505881@51	true	Patience Wright-Rachel	\N
+22312162@7_0-22312162@7_4	22312162@7	true	M. Rayeez-Pudhuvacherry Nissar	\N
+419037@46_0-419037@46_4	419037@46	true	Wilford Woodruff-Azmon	\N
+34437152@3_0-34437152@3_27	34437152@3	true	Mariah McManus-Aaron	\N
+30543907@89_0-30543907@89_3	30543907@89	true	Jack Grassel-Steve	\N
+5536937@35_0-5536937@35_8	5536937@35	true	Phil Gayle-Mike Gayle	\N
+145817@109_8-145817@109_14	145817@109	true	Coenwulf of Mercia-Ceolwulf	\N
+32123230@2_0-32123230@2_10	32123230@2	true	Ricardo Castillo-Jos Luis Castillo	\N
+7458986@11_0-7458986@11_9	7458986@11	true	Elizabeth Twining-Louisa Twining	\N
+10500645@16_0-10500645@16_5	10500645@16	true	Ty Page-Greg	\N
+36654476@8_0-36654476@8_6	36654476@8	true	Kristian Golomeev-Nikola	\N
+5119376@46_5-5119376@46_24	5119376@46	true	John F. Kennedy-Joe Jr.	\N
+21508293@3_1-21508293@3_5	21508293@3	true	Shō Shitsu-Sh Ken	\N
+4438793@58_0-4438793@58_5	4438793@58	true	John Harbaugh-Jim	\N
+9088219@12_9-9088219@12_14	9088219@12	true	Charlie Collier-Harry	\N
+3452701@12_11-3452701@12_17	3452701@12	true	Big Nose Kate-Wilhelmina	\N
+28684505@7_0-28684505@7_7	28684505@7	true	Norbert van Bloemen-Pieter	\N
+12724807@63_0-12724807@63_5	12724807@63	true	Malcom Floyd-Malcolm	\N
+17454431@57_0-17454431@57_4	17454431@57	true	Carolyn Peck-Michael	\N
+574756@42_3-574756@42_8	574756@42	true	Nell Gwyn-Rose	\N
+35004136@17_0-35004136@17_6	35004136@17	true	Golub Babić-Bo	\N
+18948155@7_0-18948155@7_6	18948155@7	true	Sajjad Moradi-Amir Moradi	\N
+2158903@8_0-2158903@8_5	2158903@8	true	Anna Hall Roosevelt-Elizabeth	\N
+13445924@32_6-13445924@32_9	13445924@32	true	Phyllis Dare-Zena	\N
+4447502@3_27-4447502@3_34	4447502@3	true	George Douglas, 1st Earl of Dumbarton-William Douglas	\N
+20099241@3_4-20099241@3_19	20099241@3	true	Dennis Grainger-Jack	\N
+41022383@5_0-41022383@5_9	41022383@5	true	Garry Delaney-Mark Delaney	\N
+22459482@8_0-22459482@8_7	22459482@8	true	John Rhea Barton-William P.C. Barton	\N
+4185070@5_1-4185070@5_5	4185070@5	true	Otto II, Duke of Swabia-Liudolf	\N
+11775663@18_0-11775663@18_3	11775663@18	true	Robert Bowne Minturn-Sarah	\N
+2464975@55_2-2464975@55_6	2464975@55	true	Zhang Jiazhen-Zhang Jiayou	\N
+9650538@8_0-9650538@8_8	9650538@8	true	Ahmed bin Salman bin Abdulaziz Al Saud-Fahd	\N
+12961622@9_27-12961622@9_31	12961622@9	true	Jane Cazneau-Robert	\N
+834604@6_0-834604@6_7	834604@6	true	Samuel Hui-Michael	\N
+11630069@23_0-11630069@23_11	11630069@23	true	Roy Myrie-David Myrie	\N
+2542895@4_18-2542895@4_27	2542895@4	true	Oleg Yankovsky-Rostislav	\N
+3774806@18_0-3774806@18_3	3774806@18	true	Bertie Ahern-Noel	\N
+10879700@59_0-10879700@59_8	10879700@59	true	Robert Dowd-Michael	\N
+1891203@8_3-1891203@8_8	1891203@8	true	Momoe Yamaguchi-Toshie	\N
+40904931@10_2-40904931@10_6	40904931@10	true	Wilfred Byng Kenrick-Cicely	\N
+43342211@4_18-43342211@4_25	43342211@4	true	Charles de Visscher-Ferdinand	\N
+6989288@10_0-6989288@10_10	6989288@10	true	Godwin Samararatne-Felix	\N
+37266823@48_0-37266823@48_4	37266823@48	true	Jillian Ellis-Paul Ellis	\N
+43301123@12_19-43301123@12_24	43301123@12	true	John James Tayler-Andrew	\N
+8824834@12_9-8824834@12_15	8824834@12	true	Woldemar, Prince of Lippe-Alexander	\N
+27824928@2_0-27824928@2_5	27824928@2	true	Yeghishe I-Catholicos Theodore I. Ruled the Church	\N
+9811228@15_9-9811228@15_17	9811228@15	true	Princess Sophia of Sweden-Elizabeth	\N
+21643619@8_0-21643619@8_5	21643619@8	true	Denah Weinberg-Naomi	\N
+11731538@3_0-11731538@3_4	11731538@3	true	Francesco Lauri-Fillipo Lauri	\N
+325590@10_0-325590@10_5	325590@10	true	Dan Flavin-David	\N
+649101@9_0-649101@9_5	649101@9	true	Vonda Shepard-Armina	\N
+7800492@29_10-7800492@29_14	7800492@29	true	Murilo Rua-Mauricio	\N
+831383@4_0-831383@4_5	831383@4	true	Marian Otis Chandler-Mabel	\N
+936891@8_2-936891@8_7	936891@8	true	Sam Chatmon-Lonnie Chatmon	\N
+38920115@24_3-38920115@24_7	38920115@24	true	Joseph Bacon Fraser, Jr.-Charles	\N
+20111220@27_2-20111220@27_6	20111220@27	true	William Lambert Dobson-Henry Dobson	\N
+3155168@25_0-3155168@25_4	3155168@25	true	Virginia Eliza Clemm Poe-William Henry Leonard Poe	\N
+1673008@9_0-1673008@9_9	1673008@9	true	Lee Elia-Diane	\N
+30799919@10_0-30799919@10_4	30799919@10	true	Jhonny Bravo-Gerardo Bravo	\N
+27600370@22_14-27600370@22_23	27600370@22	true	Yoni Wolf-Josiah	\N
+6523421@31_27-6523421@31_31	6523421@31	true	Ed Masterson-Jim Masterson	\N
+9729815@6_6-9729815@6_11	9729815@6	true	Marcel Liebman-Henri	\N
+28323169@4_14-28323169@4_19	28323169@4	true	Adrianos Komnenos-Nikephoros	\N
+341580@110_11-341580@110_18	341580@110	false	Tom Benson-Ryan	\N
+23943446@25_0-23943446@25_22	23943446@25	true	David Reimer-Brian Reimer	\N
+1393758@68_6-1393758@68_14	1393758@68	true	Songtsän Gampo-Tsensong	\N
+251857@11_1-251857@11_7	251857@11	true	Gongsun Kang-Gongsun Gong	\N
+8326014@25_0-8326014@25_6	8326014@25	true	Tim Lee Carter-Pearl Carter Pace	\N
+4629052@15_23-4629052@15_26	4629052@15	true	Emmet Crawford-Charles	\N
+24870566@69_3-24870566@69_14	24870566@69	true	Pedro Alfonso-Rodrigo	\N
+17506116@2_0-17506116@2_30	17506116@2	false	Keith Harwood-Andy Johns	\N
+4358321@7_0-4358321@7_15	4358321@7	true	Jonny Evans-Corry Cathcart	\N
+41245437@11_0-41245437@11_3	41245437@11	true	Samuel T. Lawrence-Fanny	\N
+360887@64_0-360887@64_3	360887@64	true	Otto Lilienthal-Gustav	\N
+40694705@14_9-40694705@14_14	40694705@14	true	Franciscus Pahr-Domenicus Pahr	\N
+1989326@36_1-1989326@36_4	1989326@36	true	Bill Cook-Frank Boucher	\N
+13458443@42_30-13458443@42_33	13458443@42	true	Alistair Brownlee-Javier G mez Noya	\N
+402576@4_0-402576@4_7	402576@4	true	Cristian Castro-Michelle S ez Castro	\N
+18141818@13_0-18141818@13_4	18141818@13	true	Thomas N. McCarter-Robert	\N
+29644887@3_6-29644887@3_12	29644887@3	true	Marika Savšek-Andrej	\N
+41257500@9_9-41257500@9_13	41257500@9	true	Cruz Garcia-Manuel Garcia	\N
+1240654@16_14-1240654@16_22	1240654@16	true	Joe Manchin-Roch Manchin	\N
+24976967@3_0-24976967@3_8	24976967@3	true	Constance Beerbohm-Herbert Beerbohm	\N
+30427990@36_0-30427990@36_7	30427990@36	true	Miriam O'Reilly-Kaite O'Reilly	\N
+13092922@6_9-13092922@6_14	13092922@6	true	Harry Donenfeld-Charlie	\N
+14548816@3_0-14548816@3_13	14548816@3	true	Laurie Bliss-C. D. Bliss	\N
+4155962@11_5-4155962@11_8	4155962@11	true	Livia Medullina-Scribonianus	\N
+8471319@17_0-8471319@17_8	8471319@17	true	Alejandro Alfaro-Juan Jos	\N
+9854117@42_3-9854117@42_28	9854117@42	true	Marie, Duchess of Auvergne-Bonne	\N
+88492@21_6-88492@21_11	88492@21	true	Jack Warner-Hirsch	\N
+1810117@29_0-1810117@29_7	1810117@29	true	Leland Chapman-Duane Lee	\N
+80140@147_0-80140@147_6	80140@147	true	Alexander Haig-Regina Meredith	\N
+27078566@11_0-27078566@11_8	27078566@11	true	Karl Jeno Schmid-Kristian Schmid	\N
+23940734@4_0-23940734@4_20	23940734@4	true	Rudy Kay-Yvon	\N
+14069630@2_14-14069630@2_17	14069630@2	true	Stuart Leach-Simon	\N
+30387@22_15-30387@22_19	30387@22	true	Tom Stoppard-Petr	\N
+27409610@8_23-27409610@8_29	27409610@8	false	Yury Baryatinsky-Konstantin Vyhovsky	\N
+29443469@6_10-29443469@6_15	29443469@6	true	Cal Alley-James	\N
+36906157@1_0-36906157@1_5	36906157@1	true	Koya Kazama-Koki	\N
+10026456@21_5-10026456@21_9	10026456@21	true	Ernesto Padilla-Carlos	\N
+29540842@43_0-29540842@43_4	29540842@43	true	John Drummond of Milnab-David Drummond	\N
+14791279@9_0-14791279@9_10	14791279@9	true	Al-Ashraf-As-Salih Ismail	\N
+43937625@7_3-43937625@7_8	43937625@7	true	George Ellicott-Elias	\N
+25348453@8_0-25348453@8_4	25348453@8	true	Laughlin Ó Cellaigh-Tadhg	\N
+19877751@2_0-19877751@2_3	19877751@2	true	Rick Colella-Lynn	\N
+354576@21_0-354576@21_6	354576@21	true	Matt Hardy-Jeff	\N
+2410842@10_5-2410842@10_8	2410842@10	true	Antoine Daniel-Charles	\N
+61645@9_3-61645@9_7	61645@9	true	Theodosius II-Pulcheria	\N
+39686801@5_0-39686801@5_7	39686801@5	true	John of Saint Omer-Nicholas II	\N
+16625469@2_0-16625469@2_8	16625469@2	true	Vince Sherlock-Monk Sherlock	\N
+193537@6_0-193537@6_10	193537@6	true	Hermann Minkowski-Oskar	\N
+6367871@20_0-6367871@20_7	6367871@20	true	Bob Tidyman-William Tidyman	\N
+18621887@206_7-18621887@206_12	18621887@206	true	Ted Kaczynski-David Kaczynski	\N
+386763@29_6-386763@29_13	386763@29	true	Thomas Erskine, 1st Baron Erskine-Earl of Buchan	\N
+2380288@43_13-2380288@43_16	2380288@43	true	Nigel Olsson-Kai	\N
+21291468@5_0-21291468@5_4	21291468@5	true	Albert Turnbull-Percival	\N
+8412709@5_0-8412709@5_7	8412709@5	true	Harold Pope-George	\N
+78747@160_0-78747@160_3	78747@160	true	Cat Stevens-David Gordon	\N
+1650755@27_30-1650755@27_36	1650755@27	true	George Huntington Hartford-John	\N
+36345201@6_0-36345201@6_6	36345201@6	true	Šandor Alexander-Samuel David	\N
+3615326@6_0-3615326@6_5	3615326@6	true	Stephen C. Apostolof-Stavri	\N
+48316@9_4-48316@9_11	48316@9	true	Ambrosius Holbein-Hans	\N
+7621738@39_5-7621738@39_15	7621738@39	true	Kyle Singler-E. J. Singler	\N
+31326029@2_6-31326029@2_13	31326029@2	true	John Komnenos Asen-Ivan Alexander	\N
+10446380@53_11-10446380@53_23	10446380@53	true	Chrisye-Vicky	\N
+27313303@2_0-27313303@2_8	27313303@2	true	William Grylls Adams-John Couch Adams	\N
+4335026@24_17-4335026@24_25	4335026@24	false	Dermot Gallagher-Noel Gallagher	\N
+21100979@4_0-21100979@4_14	21100979@4	true	Dave Nachmanoff-Jeffrey Nachmanoff	\N
+3678823@4_0-3678823@4_8	3678823@4	true	Dillwyn Parrish-Anne Parrish	\N
+24698469@39_0-24698469@39_10	24698469@39	true	Ivan Zelic-Ned Zeli	\N
+41450168@11_0-41450168@11_4	41450168@11	true	Joseph P. Lordi-James Lordi	\N
+2195549@34_1-2195549@34_6	2195549@34	true	Lucius M. Walker-Lucius Marshall Walker	\N
+656549@52_0-656549@52_6	656549@52	true	Dylan McDermott-Robin	\N
+25596958@2_0-25596958@2_8	25596958@2	true	Lucas Matthysse-Walter Matthysse	\N
+3024713@7_0-3024713@7_3	3024713@7	true	Rico Fata-Drew	\N
+28177386@24_0-28177386@24_5	28177386@24	true	Arnold Tancred-Henry	\N
+14892185@8_0-14892185@8_8	14892185@8	true	René de Saussure-Ferdinand de Saussure	\N
+216416@28_0-216416@28_7	216416@28	true	Lady Bird Johnson-Thomas Jefferson Jr.	\N
+505542@19_1-505542@19_6	505542@19	true	Aga Khan IV-Prince Amyn	\N
+4390894@4_0-4390894@4_6	4390894@4	true	Justin Upton-B.J.	\N
+5854422@2_4-5854422@2_18	5854422@2	true	Kent Kingsley-Wade	\N
+2650128@15_20-2650128@15_25	2650128@15	true	George de Mohrenschildt-Dimitri	\N
+38536572@9_2-38536572@9_6	38536572@9	true	Isobel Hoppar-William Hoppar	\N
+22747047@16_0-22747047@16_4	22747047@16	true	Francisco Burdett O'Connor-Feargus	\N
+8021846@4_0-8021846@4_5	8021846@4	true	Arshag Karagheusian-Miran Karagheusian	\N
+31070392@8_3-31070392@8_7	31070392@8	false	Donald George Mackay-Alex White	\N
+27630123@8_0-27630123@8_3	27630123@8	true	Elias Hämäläinen-Markus H	\N
+662956@22_0-662956@22_4	662956@22	true	LaMont Johnson-Keith	\N
+47253@91_18-47253@91_21	47253@91	true	Richeza of Lotharingia-Ida	\N
+1388392@8_3-1388392@8_8	1388392@8	true	Antoine Izméry-Georges	\N
+4936247@10_0-4936247@10_3	4936247@10	true	Arthur Isaac-John	\N
+39842104@4_0-39842104@4_3	39842104@4	true	Disma Fumagalli-Carlo	\N
+326306@5_26-326306@5_31	326306@5	true	Emily Tennyson, Lady Tennyson-Louisa	\N
+345580@2_11-345580@2_14	345580@2	true	Patrick Meik-Charles Meik	\N
+20384841@34_16-20384841@34_19	20384841@34	true	Roger Hooker Leavitt-Hart	\N
+29806816@49_4-29806816@49_10	29806816@49	true	William Wilson Talcott-James Richard Talcott	\N
+256745@8_0-256745@8_5	256745@8	true	Stanton Macdonald-Wright-Willard Huntington Wright	\N
+31600349@7_1-31600349@7_10	31600349@7	true	Philip Percival-Blaney	\N
+5889745@4_0-5889745@4_4	5889745@4	true	Jerald Clark-Phil Clark	\N
+930950@17_0-930950@17_5	930950@17	true	Khurshid Mahmud Kasuri-Bakhtiar Mahmud Kasuri	\N
+418591@103_0-418591@103_4	418591@103	true	John Michell-Gilbert	\N
+199933@17_0-199933@17_5	199933@17	true	Eric Cantona-Jean-Marie	\N
+701877@11_4-701877@11_11	701877@11	true	Emily Murphy-Thomas	\N
+38037201@4_1-38037201@4_5	38037201@4	true	John de Moravia, 9th Earl of Sutherland-Elizabeth	\N
+4687436@29_0-4687436@29_8	4687436@29	true	Ed Doolan-George	\N
+27143396@12_0-27143396@12_6	27143396@12	true	Parnell Gale-Anthony Gale	\N
+2733283@161_6-2733283@161_10	2733283@161	true	Abdolhossein Teymourtash-Badri Teymourtash	\N
+60827@38_4-60827@38_8	60827@38	true	Cleopatra-Ptolemy XIII	\N
+69811@21_11-69811@21_14	69811@21	true	Lillie Langtry-William	\N
+28902670@3_0-28902670@3_3	28902670@3	true	Merritt J. Reid-James W.	\N
+875007@12_3-875007@12_7	875007@12	true	Charles Hatfield-Paul	\N
+24709797@4_0-24709797@4_4	24709797@4	true	Tino Tabak-Corrie	\N
+2068604@21_6-2068604@21_12	2068604@21	true	Paul Gait-Gary Gait	\N
+741216@8_0-741216@8_4	741216@8	true	Robert Cutler-Elliott Carr Cutler	\N
+40619146@5_0-40619146@5_4	40619146@5	true	Cyrus Hashemi-Jamshid Hashemi	\N
+43391316@5_0-43391316@5_5	43391316@5	true	Edward Kirwan-John	\N
+22514393@11_0-22514393@11_5	22514393@11	true	Steven Purugganan-Andrew	\N
+7122850@7_0-7122850@7_4	7122850@7	true	Philip Leakey-Richard Leakey	\N
+20235507@26_0-20235507@26_4	20235507@26	true	Daniel Fridman-Rafael	\N
+4763722@8_7-4763722@8_12	4763722@8	true	Erchanger, Duke of Swabia-Berthold	\N
+2150917@17_0-2150917@17_3	2150917@17	true	Andrew Coltart-Laurae	\N
+864@26_0-864@26_6	864@26	true	Andy Warhol-Pavol	\N
+1307607@56_0-1307607@56_6	1307607@56	true	Quentin Richardson-Cedric	\N
+849789@4_0-849789@4_9	849789@4	true	Orlando Cabrera-Jolbert Cabrera	\N
+3206896@9_1-3206896@9_6	3206896@9	true	Rob Short-Mark	\N
+1480643@40_9-1480643@40_12	1480643@40	true	Eddie Palmieri-Charlie	\N
+21117436@5_0-21117436@5_16	21117436@5	true	Waldemar Fegelein-Hermann Fegelein	\N
+1506716@13_0-1506716@13_5	1506716@13	true	Cathy King-Robbie	\N
+1515353@58_0-1515353@58_4	1515353@58	true	Romeo Crennel-Carl Crennel	\N
+38210427@6_0-38210427@6_5	38210427@6	true	Stephen Swart-Jack	\N
+882447@6_30-882447@6_36	882447@6	true	Patsy Kensit-Jamie	\N
+20864@108_7-20864@108_11	20864@108	true	Margaret Mitchell-Stephens	\N
+979174@7_16-979174@7_21	979174@7	true	Dambudzo Marechera-Michael	\N
+3037699@3_0-3037699@3_10	3037699@3	true	Doyle Wolfgang von Frankenstein-Jerry Only	\N
+2925608@3_7-2925608@3_12	2925608@3	true	Julia Murdock Smith-Joseph	\N
 \.
 
 
