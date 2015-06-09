@@ -16,7 +16,7 @@ do
 	  psql -U yahres -p 6432 -h raiders5.stanford.edu -d cs341_15 -c "SELECT count(*) FROM permanent_tags_family_${relat}_precision_is_correct WHERE expectation > $i and is_correct='false';" -t >> results.tsv
 	done
 
-	psql -U yahres -p 6432 -h raiders5.stanford.edu -d cs341_15 -c "SELECT count(*) FROM permanent_tags_family_${relat}_precision_is_correct WHERE is_correct!='';" -t >> results.tsv
+	psql -U yahres -p 6432 -h raiders5.stanford.edu -d cs341_15 -c "SELECT count(*) FROM permanent_tags_family_${relat}_precision_is_correct WHERE is_correct!='' and expectation > 0;" -t >> results.tsv
 
 	./calculus_for_raiders.py $relat
 	rm results.tsv
