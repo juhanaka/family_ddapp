@@ -1,0 +1,188 @@
+#Table declarations
+
+#Original table with input data
+
+sentences(
+  document_id text,
+  sentence text,
+  words text[],
+  lemma text[],
+  pos_tags text[],
+  dependency_labels text[],
+  dependency_parents int[],
+  ner_tags text[],
+  sentence_offset bigint,
+  sentence_id text
+  ).
+
+#Tables to be filled during the run
+
+sentences_processed(
+  document_id text,
+  sentence text,
+  words text[],
+  lemma text[],
+  pos_tags text[],
+  dependencies text[],
+  ner_tags text[],
+  sentence_offset bigint,
+  sentence_id text
+  ).
+
+ sentences_filtered(
+  document_id text,
+  sentence text,
+  words text[],
+  lemma text[],
+  pos_tags text[],
+  dependencies text[],
+  ner_tags text[],
+  sentence_offset bigint,
+  sentence_id text
+  ).
+
+ people_mentions(
+  sentence_id text,
+  start_position int,
+  length int,
+  text text,
+  mention_id text
+  ).
+
+has_spouse(
+  person1_id text,
+  person2_id text,
+  sentence_id text,
+  description text,
+  is_true boolean,
+  relation_id text, 
+  id bigint  
+  ).
+
+has_sibling(
+  person1_id text,
+  person2_id text,
+  sentence_id text,
+  description text,
+  is_true boolean,
+  relation_id text,
+  id bigint
+  ).
+
+has_child(
+  parent_id text,
+  child_id text,
+  sentence_id text,
+  description text,
+  is_true boolean,
+  relation_id text, 
+  id bigint 
+  ).
+
+has_parent(
+  child_id text,
+  parent_id text,
+  sentence_id text,
+  description text,
+  is_true boolean,
+  relation_id text,
+  id bigint 
+  ).
+
+#has_spouse_features(
+#  relation_id text,
+#  feature text).
+#
+#has_sibling_features(
+#  relation_id text,
+#  feature text).
+#
+#has_parent_features(
+#  relation_id text,
+#  feature text).
+#
+#has_child_features(
+#  relation_id text,
+#  feature text).
+#
+
+# Extractions
+
+#ext_process_dependencies
+function process_dependencies over rows like process_dependencies_input
+returns rows like sentences_processed
+implementation "udf/ext_dependencies.py" handles tsv lines.
+
+sentences_processed += process_dependencies(document_id, sentence, words, lemma, pos_tags, dependency_labels, dependency_parents, ner_tags, sentence_offset, sentence_id) :-
+sentences(document_id, sentence, words, lemma, pos_tags, dependency_labels, dependency_parents, ner_tags, sentence_offset, sentence_id).
+
+#ext_filter_bad_sentences
+function filter_bad_sentences over rows like filter_bad_sentences_input
+returns rows like sentences_filtered
+implementation "udf/ext_sentence_filter.py" handles tsv lines.
+
+sentences_filtered += filter_bad_sentences(document_id, sentence, words, lemma, pos_tags, dependencies, ner_tags, sentence_offset, sentence_id) :-
+sentences_processed(document_id, sentence, words, lemma, pos_tags, dependencies, ner_tags, sentence_offset, sentence_id).
+
+
+
+#ext_people
+function ext_people_candidates over rows like ext_people_candidates_input
+returns rows like people_mentions
+implementation "udf/ext_people.py" handles tsv lines.
+
+people_mentions += ext_people_candidates(sentence_id, array_to_string(words, "~^~"), array_to_string(ner_tags, "~^~")) :-
+sentences_filtered(document_id, sentence, words, lemma, pos_tags, dependencies, ner_tags, sentence_offset, sentence_id).
+
+
+#Is using sentences_filtered here really useful ?
+
+#ext_has_spouse_candidates
+function ext_has_spouse_candidates over rows like ext_has_spouse_candidates_input
+returns rows like has_spouse
+implementation "udf/ext_has_spouse.py" handles tsv lines.
+
+has_spouse += ext_has_spouse_candidates(sentence_id, p1_mention_id, p1_text, p2_mention_id, p2_text) :-
+people_mentions(sentence_id, p1_start_position, p1_length, p1_text, p1_mention_id), 
+people_mentions(sentence_id, p2_start_position, p2_length, p2_text, p2_mention_id), 
+sentences_filtered(_, _, _, _, _, _, _, _, sentence_id), 
+[p1_mention_id != p2_mention_id].
+
+#ext_has_sibling_candidates
+function ext_has_sibling_candidates over rows like ext_has_sibling_candidates_input
+returns rows like has_sibling
+implementation "udf/ext_has_sibling.py" handles tsv lines.
+
+has_sibling += ext_has_sibling_candidates(sentence_id, p1_mention_id, p1_text, p2_mention_id, p2_text) :-
+people_mentions(sentence_id, p1_start_position, p1_length, p1_text, p1_mention_id), 
+people_mentions(sentence_id, p2_start_position, p2_length, p2_text, p2_mention_id), 
+sentences_filtered(_, _, _, _, _, _, _, _, sentence_id), 
+[p1_mention_id != p2_mention_id].
+
+#ext_has_parent_candidates
+function ext_has_parent_candidates over rows like ext_has_parent_candidates_input
+returns rows like has_parent
+implementation "udf/ext_has_parent.py" handles tsv lines.
+
+has_parent += ext_has_parent_candidates(sentence_id, p1_mention_id, p1_text, p2_mention_id, p2_text) :-
+people_mentions(sentence_id, p1_start_position, p1_length, p1_text, p1_mention_id), 
+people_mentions(sentence_id, p2_start_position, p2_length, p2_text, p2_mention_id), 
+sentences_filtered(_, _, _, _, _, _, _, _, sentence_id), 
+[p1_mention_id != p2_mention_id].
+
+
+#ext_has_child_candidates
+function ext_has_child_candidates over rows like ext_has_child_candidates_input
+returns rows like has_child
+implementation "udf/ext_has_child.py" handles tsv lines.
+
+has_child += ext_has_child_candidates(sentence_id, p1_mention_id, p1_text, p2_mention_id, p2_text) :-
+people_mentions(sentence_id, p1_start_position, p1_length, p1_text, p1_mention_id), 
+people_mentions(sentence_id, p2_start_position, p2_length, p2_text, p2_mention_id), 
+sentences_filtered(_, _, _, _, _, _, _, _, sentence_id), 
+[p1_mention_id != p2_mention_id].
+
+
+
+
+
