@@ -66,4 +66,10 @@ target/
 #vim
 *.swp
 
+#Defining local database
 db.url
+
+#Ignoring compiled files
+run/
+
+
