@@ -72,4 +72,5 @@ db.url
 #Ignoring compiled files
 run/
 
-
+#Ignoring the sentences input (too big for git)
+input/sentences*
