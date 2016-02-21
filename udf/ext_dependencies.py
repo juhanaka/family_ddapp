@@ -14,7 +14,6 @@ from deepdive import *
  sentence_offset  =  "bigint",  
  sentence_id      =  "text",    
   :[])
-
 def extract(
  document_id          =  "text",       
  sentence             =  "text",       
@@ -26,7 +25,7 @@ def extract(
  ner_tags             =  "text[]",     
  sentence_offset      =  "bigint",     
  sentence_id          =  "text",
- ):
+  ):
   dependency_strings = []
   try:
     for i, label in enumerate(dependency_labels):
